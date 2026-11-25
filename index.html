@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Tipografías juveniles y deportivas desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Chakra+Petch:ital,wght@0,700;1,700&family=Outfit:wght@400;500;600;700;800&family=Russo+One&display=swap" rel="stylesheet">
+  
+  <!-- Biblioteca JavaScript GSAP para animaciones fluidas y modernas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- React 18, ReactDOM y Babel para componentes interactivos animados -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="./style.css">
+  
+  <style>
+   html {
+       scroll-behavior: smooth;
+   }
+
+   a, button, input, select, h1, h2, h3, h4, h5, * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+       -webkit-font-smoothing: antialiased;
+       font-family: 'Outfit', sans-serif !important;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+
+   body {
+       background: radial-gradient(circle at top, #1f1610 0%, #0b0d12 100%);
+       display: flex;
+       justify-content: center;
+       min-height: 100vh;
+       overflow-x: hidden;
+   }
+
+   /* Lienzo JavaScript de partículas de viento y energía ciclista */
+   #cyclingCanvas {
+       position: fixed;
+       inset: 0;
+       width: 100vw;
+       height: 100vh;
+       pointer-events: none;
+       z-index: 5;
+   }
+
+   /* Fondo principal con personalidad deportiva y vibrante */
+   .mobile-320 {
+       position: relative;
+       overflow-x: hidden;
+       background: linear-gradient(180deg, #12151e 0%, #181c28 35%, #11131a 70%, #0a0c10 100%) !important;
+       box-shadow: 0 0 45px rgba(255, 85, 0, 0.32);
+       z-index: 10;
+   }
+
+   /* Capa de figuras geométricas animadas con React */
+   #react-cycling-shapes {
+       position: absolute;
+       inset: 0;
+       pointer-events: none;
+       z-index: 15;
+       overflow: hidden;
+   }
+
+   /* HUD Flotante interactivo de React (Pelotón en vivo) */
+   #react-peloton-hud {
+       position: fixed;
+       bottom: 12px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: min(94%, 340px);
+       z-index: 9500;
+       pointer-events: auto;
+   }
+
+   .peloton-hud-bar {
+       background: rgba(15, 19, 29, 0.88);
+       backdrop-filter: blur(10px);
+       border: 1.5px solid rgba(255, 183, 3, 0.55);
+       border-radius: 16px;
+       padding: 7px 12px;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       gap: 8px;
+       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.65), 0 0 15px rgba(255, 85, 0, 0.25);
+   }
+
+   .sprint-btn {
+       background: linear-gradient(135deg, #ff5500, #ffb703);
+       color: #0b0d12;
+       font-weight: 800;
+       font-size: 11px;
+       padding: 6px 10px;
+       border-radius: 10px;
+       cursor: pointer;
+       text-transform: uppercase;
+       letter-spacing: 0.4px;
+       box-shadow: 0 0 12px rgba(255, 183, 3, 0.5);
+       transition: transform 0.15s ease, filter 0.15s ease;
+       white-space: nowrap;
+   }
+
+   .sprint-btn:active {
+       transform: scale(0.92);
+   }
+
+   .sprint-btn.active-sprint {
+       background: linear-gradient(135deg, #00d4ff, #38bdf8);
+       box-shadow: 0 0 16px rgba(0, 212, 255, 0.8);
+       animation: pulseSprint 0.6s infinite alternate;
+   }
+
+   @keyframes pulseSprint {
+       from { transform: scale(1); }
+       to { transform: scale(1.05); }
+   }
+
+   @keyframes spinGear {
+       from { transform: rotate(0deg); }
+       to { transform: rotate(360deg); }
+   }
+
+   @keyframes spinGearReverse {
+       from { transform: rotate(360deg); }
+       to { transform: rotate(0deg); }
+   }
+
+   @keyframes floatCyclist {
+       0%, 100% { transform: translateY(0px); }
+       50% { transform: translateY(-4px); }
+   }
+
+   /* CONTENEDOR UNIFORME DEL RECUADRO NEGRO SUPERIOR (155PX DE ALTO) */
+   .header-banner {
+       position: absolute !important;
+       top: 0 !important;
+       left: 0 !important;
+       width: 100% !important;
+       height: 155px !important;
+       display: flex !important;
+       align-items: center !important;
+       justify-content: center !important;
+       padding: 12px 10px !important;
+       z-index: 200 !important;
+       overflow: hidden !important;
+   }
+
+   .header-banner::after {
+       content: "";
+       position: absolute;
+       bottom: 0;
+       left: -100%;
+       width: 200%;
+       height: 2px;
+       background: linear-gradient(90deg, transparent, #ff5500, #ffb703, #00d4ff, transparent);
+       animation: headerTrackFlow 2.6s linear infinite;
+   }
+
+   @keyframes headerTrackFlow {
+       0% { transform: translateX(0%); }
+       100% { transform: translateX(50%); }
+   }
+
+   /* MENÚ DE LAS 3 RAYITAS ALINEADO AL CENTRO VERTICAL DEL RECUADRO */
+   .ic-baseline-menu {
+       position: static !important;
+       width: 28px !important;
+       height: 28px !important;
+       flex-shrink: 0 !important;
+       margin-right: 6px !important;
+       z-index: 250 !important;
+       filter: invert(58%) sepia(93%) saturate(2258%) hue-rotate(359deg) brightness(101%) contrast(106%);
+   }
+
+   /* TÍTULO PRINCIPAL Y TREN CENTRADOS EN EL RECUADRO NEGRO */
+   .logo3 {
+       position: static !important;
+       flex: 1 !important;
+       width: auto !important;
+       display: flex !important;
+       justify-content: center !important;
+       align-items: center !important;
+       padding: 0 !important;
+       pointer-events: none;
+       z-index: 150 !important;
+   }
+
+   .image-png12 {
+       top: 155px !important;
+   }
+
+   .ride-it {
+       display: inline-flex !important;
+       align-items: center !important;
+       justify-content: center !important;
+       gap: 6px !important;
+   }
+
+   .title-stack {
+       display: flex !important;
+       flex-direction: column !important;
+       align-items: center !important;
+       justify-content: center !important;
+       line-height: 0.94 !important;
+   }
+
+   .title-line-1, .title-line-2 {
+       font-family: 'Bungee', sans-serif !important;
+       text-transform: uppercase !important;
+       white-space: nowrap !important;
+       background: linear-gradient(180deg, #ffffff 0%, #ffd166 48%, #ff5500 100%) !important;
+       -webkit-background-clip: text !important;
+       -webkit-text-fill-color: transparent !important;
+       filter: drop-shadow(0 3px 8px rgba(255, 85, 0, 0.65));
+   }
+
+   .title-line-1 {
+       font-size: 34px !important;
+       letter-spacing: 0.5px !important;
+   }
+
+   .title-line-2 {
+       font-size: 34px !important;
+       letter-spacing: 0.5px !important;
+   }
+
+   .modern-train-box {
+       width: 56px;
+       height: 36px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-shrink: 0;
+       filter: drop-shadow(0 2px 10px rgba(0, 212, 255, 0.45));
+   }
+
+   .faq {
+    transform: translateX(-28px) !important;
+}
+
+   .logo {
+    width: 280px !important;
+    overflow: visible !important;
+}
+
+   .logo2 {
+    font-family: 'Russo One', sans-serif !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff6b00, #ffb703);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+   /* ===================================================================== */
+   /* CARRUSEL DINÁMICO E INNOVADOR + FLECHAS AL FRENTE DE 01 - 29          */
+   /* ===================================================================== */
+   .image-png11 {
+       overflow: visible !important;
+       touch-action: pan-y;
+       cursor: grab;
+   }
+
+   .image-png11:active {
+       cursor: grabbing;
+   }
+
+   .carousel-deck-back-1,
+   .carousel-deck-back-2 {
+       position: absolute;
+       inset: 0;
+       border-radius: 14px;
+       pointer-events: none;
+       transition: transform 0.35s ease;
+   }
+
+   .carousel-deck-back-1 {
+       background: linear-gradient(135deg, rgba(255, 85, 0, 0.28), rgba(255, 183, 3, 0.12));
+       border: 1.5px solid rgba(255, 183, 3, 0.45);
+       transform: rotate(-3.5deg) translate(-5px, 4px) scale(0.97);
+       z-index: 1;
+   }
+
+   .carousel-deck-back-2 {
+       background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(15, 23, 42, 0.6));
+       border: 1.5px solid rgba(0, 212, 255, 0.45);
+       transform: rotate(3.2deg) translate(6px, 5px) scale(0.96);
+       z-index: 2;
+   }
+
+   .image-png11 .rectangle-3 {
+       position: relative !important;
+       z-index: 4 !important;
+   }
+
+   .carousel-live-badge {
+       position: absolute;
+       top: 10px;
+       left: 10px;
+       z-index: 10;
+       background: rgba(11, 13, 18, 0.82);
+       backdrop-filter: blur(6px);
+       border: 1px solid rgba(0, 212, 255, 0.65);
+       color: #ffffff;
+       font-size: 10px;
+       font-weight: 800;
+       letter-spacing: 0.6px;
+       text-transform: uppercase;
+       padding: 4px 9px;
+       border-radius: 20px;
+       display: inline-flex;
+       align-items: center;
+       gap: 5px;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+       pointer-events: none;
+   }
+
+   .live-dot {
+       width: 7px;
+       height: 7px;
+       border-radius: 50%;
+       background: #00d4ff;
+       box-shadow: 0 0 8px #00d4ff;
+       animation: blinkLive 1s infinite alternate;
+   }
+
+   @keyframes blinkLive {
+       from { opacity: 0.35; transform: scale(0.85); }
+       to { opacity: 1; transform: scale(1.15); }
+   }
+
+   .carousel-autoplay-btn {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       z-index: 12;
+       background: rgba(11, 13, 18, 0.85);
+       border: 1px solid rgba(255, 183, 3, 0.7);
+       color: #ffb703;
+       font-size: 10px;
+       font-weight: 800;
+       padding: 4px 8px;
+       border-radius: 20px;
+       cursor: pointer;
+       pointer-events: auto !important;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+   }
+
+   .carousel-progress-track {
+       position: absolute;
+       bottom: 6px;
+       left: 10px;
+       right: 10px;
+       height: 4px;
+       background: rgba(255, 255, 255, 0.22);
+       border-radius: 4px;
+       overflow: hidden;
+       z-index: 10;
+       pointer-events: none;
+   }
+
+   .carousel-progress-fill {
+       height: 100%;
+       width: 3.45%;
+       background: linear-gradient(90deg, #ff5500, #ffb703, #00d4ff);
+       border-radius: 4px;
+       transition: width 0.35s ease;
+       box-shadow: 0 0 8px #ffb703;
+   }
+
+   /* FLECHAS REPOSICIONADAS JUSTO AL FRENTE DE 01 - 29 Y LLAMATIVAS */
+   .arrow-png, .arrow-png2 {
+       position: absolute !important;
+       width: 40px !important;
+       height: 40px !important;
+       padding: 8px !important;
+       border-radius: 50% !important;
+       background: linear-gradient(135deg, rgba(255, 85, 0, 0.28), rgba(0, 212, 255, 0.22)) !important;
+       border: 2px solid #ffb703 !important;
+       box-shadow: 0 0 14px rgba(255, 183, 3, 0.65), inset 0 0 8px rgba(0, 212, 255, 0.35) !important;
+       filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255, 183, 3, 0.9)) !important;
+       opacity: 1 !important;
+       z-index: 300 !important;
+       cursor: pointer !important;
+       pointer-events: auto !important;
+       transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+   }
+
+   .arrow-png:hover, .arrow-png2:hover {
+       box-shadow: 0 0 20px rgba(0, 212, 255, 0.95) !important;
+   }
+
+   /* TÍTULOS DEL CARRUSEL */
+   .premium-bikes {
+       font-family: 'Chakra Petch', sans-serif !important;
+       font-weight: 700 !important;
+       font-size: 21.5px !important;
+       letter-spacing: 0.6px !important;
+       line-height: 1.15 !important;
+       text-transform: uppercase !important;
+       white-space: nowrap !important;
+       background: linear-gradient(90deg, #ffffff 0%, #ffb703 65%, #ff6b00 100%) !important;
+       -webkit-background-clip: text !important;
+       -webkit-text-fill-color: transparent !important;
+       filter: drop-shadow(0 2px 6px rgba(255, 183, 3, 0.35));
+   }
+
+   .enjoyable-ride-every-time {
+       font-family: 'Russo One', sans-serif !important;
+       font-size: 17px !important;
+       letter-spacing: 0.3px !important;
+       line-height: 1.2 !important;
+       background: linear-gradient(90deg, #ffffff 0%, #ffb703 100%) !important;
+       -webkit-background-clip: text !important;
+       -webkit-text-fill-color: transparent !important;
+   }
+
+   .we-re-passionate-about-all-things-cycling {
+       font-family: 'Russo One', sans-serif !important;
+       font-size: 24px !important;
+       letter-spacing: 0.6px !important;
+       line-height: 1.15 !important;
+       text-transform: uppercase !important;
+       background: linear-gradient(90deg, #ffffff 0%, #ffb703 100%) !important;
+       -webkit-background-clip: text !important;
+       -webkit-text-fill-color: transparent !important;
+       filter: drop-shadow(0 2px 6px rgba(255, 183, 3, 0.25));
+   }
+
+   /* Baja "APASIONADOS POR EL CICLISMO" para separarlo de la foto */
+.lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-sed {
+    margin-top: 25px !important;
+}
+
+   /* 1. Sube "¡Bienvenidos!..." hacia "APASIONADOS POR EL CICLISMO" */
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam {
+    margin-top: -35px !important;
+}
+
+/* 2. Sube el botón "Explore Now" hacia "...experiencias de cada rodada." */
+.button-png5 {
+    margin-top: -45px !important;
+}
+
+/* 3. Sube el carrusel, la descripción y el contador */
+#carrusel-rutas,
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi3,
+._01-04 {
+    margin-top: -60px !important;
+}
+
+/* Baja solo el título "TREN DE RESERVA" */
+.lorem-ipsum-dolor-sit-amet2 {
+    margin-top: -38px !important;
+}
+
+/* 4. Sube el bloque de Velocidad, Distancia y Desnivel */
+#estadisticas,
+._43-kph,
+.lorem-ipsum10,
+._32-km,
+.lorem-ipsum11,
+._32-kg {
+    margin-top: -170px !important;
+}
+
+/* 5. Sube las dos fotos (foto-3 y foto-4) hacia "1800m" */
+.image-png10,
+.image-png9 {
+    margin-top: -140px !important;
+}
+
+/* Sube el título "Una gran rodada cada vez" */
+.lorem-ipsum-dolor-sit-amet-cons2 {
+    margin-top: -165px !important;
+}
+
+/* Sube el párrafo "Nuestro grupo reúne..." */
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi2 {
+    margin-top: -270px !important;
+}
+
+/* Sube el párrafo blanco hacia "Una gran rodada cada vez" */
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi2 {
+    margin-top: -165px !important;
+}
+
+   .cost-effective-transportation,
+   .convenient-and-flexible,
+   .commitment-to-sustainability {
+       font-family: 'Russo One', sans-serif !important;
+       font-size: 18px !important;
+       letter-spacing: 0.4px;
+       line-height: 1.2 !important;
+       background: linear-gradient(90deg, #ffffff 0%, #ffb703 100%) !important;
+       -webkit-background-clip: text !important;
+       -webkit-text-fill-color: transparent !important;
+   }
+
+   /* TODOS LOS TEXTOS DESCRIPTIVOS EN BLANCO PURO */
+   .aluminum-steel-carbon-fiber-and-titanium,
+   .the-drivetrain-consists-of-the-chain,
+   ._26-inch,
+   .mountain-bike,
+   .our-collection-features-a-wide-range-of-high-quality-bikes-from-sleek-road-bikes-to-durable-mountain-bikes-and-versatile-hybrid-models,
+   .welcome-here-we-ve-got-everything-you-need-to-elevate-your-biking-experience,
+   .our-collection-features-a-wide-range-of-high-quality-bikes-each-bike-is-carefully-selected-for-its-performance-durability-and-comfort-ensuring-a-smooth-and-enjoyable-ride-every-time,
+   .cycling-can-save-you-a-significant-amount-of-money-in-the-long-run-with-no-fuel-costs,
+   .embrace-the-freedom-of-the-open-road-discover-hidden-trails-conquer-new-challenges-and-enjoy-every-moment-on-your-journey-start-your-adventure-today,
+   .we-invest-in-cutting-edge-technology-to-develop-innovative-and-high-performance-bikes,
+   .we-prioritize-quality-craftsmanship-in-every-aspect-of-our-products,
+   .by-using-premium-materials-we-deliver-products-that-are-durable-reliable-and-built-to-last {
+       color: #ffffff !important;
+       font-weight: 500 !important;
+   }
+
+   .swiftsprint, .urbanglide, .cruiser-x, .retrorider,
+   .frame-material, .drivetrain-components, .wheel-size2, .suspension-system,
+   .speed, .road, .weight,
+   .bike-frame-size, .wheel-size, .standover-height, .stack {
+       color: #00d4ff !important;
+       font-weight: 700 !important;
+   }
+
+   ._90, ._27, ._100, ._48, ._43-kph2, ._32-km2, ._32-kg2, ._012, ._022, ._032 {
+       font-family: 'Russo One', sans-serif !important;
+       color: #ffb703 !important;
+       text-shadow: 0 2px 12px rgba(255, 183, 3, 0.45);
+   }
+
+   ._164-mm, ._170-mm, ._171-mm, ._165-mm, ._01-042 {
+       color: #ff6b00 !important;
+       font-weight: 800 !important;
+       font-size: 20px !important;
+       text-shadow: 0 0 10px rgba(255, 107, 0, 0.45);
+   }
+
+   .rectangle-312, .rectangle-323, .rectangle-333,
+   .rectangle-252, .rectangle-262, .rectangle-272,
+   .rectangle-182, .rectangle-192, .rectangle-202 {
+       background: linear-gradient(90deg, #ff5500, #ffb703, #00d4ff, #ff5500) !important;
+       background-size: 200% 100% !important;
+       animation: gradientShift 3s linear infinite !important;
+       border-radius: 6px !important;
+       transform-origin: left center;
+   }
+
+   @keyframes gradientShift {
+       0% { background-position: 0% 50%; }
+       100% { background-position: 200% 50%; }
+   }
+
+   .rectangle-2 {
+       background: linear-gradient(135deg, #ff5500 0%, #ff8800 50%, #ffb703 100%) !important;
+       border-radius: 10px !important;
+       box-shadow: 0 4px 18px rgba(255, 85, 0, 0.55) !important;
+   }
+
+   .explore-now, .explore-now2 {
+       color: #ffffff !important;
+       font-weight: 800 !important;
+       letter-spacing: 0.5px;
+       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+   }
+
+   .rectangle-1, .rectangle-3, .rectangle-4, .rectangle-5,
+   .rectangle-11, .rectangle-12, .rectangle-13,
+   .rectangle-14, .rectangle-15, .rectangle-16,
+   .rectangle-23, .rectangle-28 {
+       border-radius: 14px !important;
+       border: 2px solid rgba(255, 183, 3, 0.45) !important;
+       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55) !important;
+       object-fit: cover !important;
+       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+   }
+
+   .rectangle-1:hover, .rectangle-3:hover, .rectangle-4:hover, .rectangle-5:hover,
+   .rectangle-11:hover, .rectangle-12:hover, .rectangle-13:hover,
+   .rectangle-14:hover, .rectangle-15:hover, .rectangle-16:hover,
+   .rectangle-23:hover, .rectangle-28:hover {
+       border-color: #00d4ff !important;
+       box-shadow: 0 10px 26px rgba(0, 212, 255, 0.35) !important;
+   }
+
+   .rectangle-33, .rectangle-32 {
+       background: linear-gradient(180deg, #161923 0%, #090a0f 100%) !important;
+       border-top: 2px solid #ff5500 !important;
+   }
+
+   .about2, .help2, .support2, .faq2, .privacy-policy2, .terms-and-conditions2 {
+       color: #ffb703 !important;
+       font-weight: 600 !important;
+   }
+
+   .copytight-2021-company-name-all-right-reserved2 {
+       color: #ffffff !important;
+       opacity: 0.8;
+       padding-bottom: 58px;
+   }
+
+html, body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-y: auto !important;
+}
+
+.mobile-320 {
+    margin-bottom: 70px !important;
+    overflow: visible !important;
+}
+
+   /* Ocultar elementos residuales innecesarios */
+   .your-ultimate-destination-for-biking-enthusiasts,
+   .lorem-ipsum-dolor-sit-amet-consecte-adipiscing-elit-sed,
+   .vector7 {
+       display: none !important;
+   }
+
+   .ic-baseline-menu,
+   .button-png, .button-png2, .button-png3, .button-png5,
+   .about, .help, .support, .faq,
+   .privacy-policy, .terms-and-conditions,
+   .image-png, .image-png2, .image-png3, .image-png4, .image-png5, .logo {
+       cursor: pointer !important;
+       z-index: 100 !important;
+       pointer-events: auto !important;
+       transition: transform 0.15s ease, opacity 0.15s ease;
+   }
+
+   .button-png:active, .button-png2:active, .button-png3:active, 
+   .button-png5:active,
+   .arrow-png:active, .arrow-png2:active, .ic-baseline-menu:active {
+       transform: scale(0.90) !important;
+       opacity: 0.85;
+   }
+
+   /* Menú desplegable de las 3 rayitas */
+   .nav-drawer {
+       position: fixed;
+       top: 0;
+       right: -280px;
+       width: 260px;
+       height: 100vh;
+       background: linear-gradient(180deg, #181c28 0%, #0d0f15 100%);
+       backdrop-filter: blur(12px);
+       z-index: 99999;
+       padding: 60px 24px 24px;
+       display: flex;
+       flex-direction: column;
+       gap: 16px;
+       transition: right 0.3s ease;
+       border-left: 2px solid #ff5500;
+   }
+
+   .nav-drawer.open {
+       right: 0;
+   }
+
+   .nav-drawer a, .nav-drawer button {
+       color: #ffffff;
+       font-size: 16px;
+       font-weight: 600;
+       text-align: left;
+       padding: 10px 0;
+       border-bottom: 1px solid rgba(255, 183, 3, 0.15);
+       cursor: pointer;
+   }
+
+   .nav-drawer a:hover, .nav-drawer button:hover {
+       color: #ffb703;
+   }
+
+   .close-drawer {
+       position: absolute;
+       top: 14px;
+       right: 20px;
+       color: #ff5500;
+       font-size: 30px;
+       font-weight: bold;
+       cursor: pointer;
+   }
+
+   /* Ventana Modal para la Galería de Fotos */
+   .media-modal {
+       display: none;
+       position: fixed;
+       inset: 0;
+       background: rgba(8, 10, 15, 0.92);
+       z-index: 100000;
+       justify-content: center;
+       align-items: center;
+       padding: 16px;
+   }
+
+   .media-modal.active {
+       display: flex;
+   }
+
+   .modal-card {
+       background: linear-gradient(180deg, #1b202e 0%, #11141d 100%);
+       color: #fff;
+       width: 100%;
+       max-width: 390px;
+       border-radius: 18px;
+       padding: 20px;
+       position: relative;
+       border: 2px solid #ff5500;
+       box-shadow: 0 10px 30px rgba(255, 85, 0, 0.3);
+       max-height: 90vh;
+       overflow-y: auto;
+   }
+
+   .modal-close {
+       position: absolute;
+       top: 10px;
+       right: 16px;
+       color: #ffb703;
+       font-size: 28px;
+       cursor: pointer;
+   }
+
+   .modal-title {
+       font-family: 'Russo One', sans-serif !important;
+       font-size: 19px;
+       margin-bottom: 12px;
+       color: #ffb703;
+   }
+
+   .preview-grid {
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 8px;
+       margin-top: 12px;
+   }
+
+   .preview-grid img {
+       width: 100%;
+       height: 95px;
+       object-fit: cover;
+       border-radius: 10px;
+       border: 1px solid rgba(255, 183, 3, 0.4);
+   }
+
+#parrafo-rodada {
+    transform: translateY(-45px) !important;
+}
+
+/* Sube el 01 y su párrafo */
+._01,
+._01 + div {
+    transform: translateY(-330px) !important;
+}
+
+/* Sube el 02 y su párrafo */
+._02,
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium2 {
+    transform: translateY(-290px) !important;
+}
+
+/* Sube el 03 y su párrafo */
+._03,
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium3 {
+    transform: translateY(-195px) !important;
+}
+
+/* Sube "Entrenamiento en Pelotón" y su párrafo */
+.lorem-ipsum-dolor-sit-amet-cons,
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam {
+    transform: translateY(-210px) !important;
+}
+
+/* Baja solo el botón "Explore Now" de esta sección */
+.button-png3 {
+    margin-top: -160px !important;
+}
+
+/* Sube las 3 fotos hacia el botón "Explore Now" */
+.image-png6,
+.image-png7,
+.image-png8 {
+    transform: translateY(-120px) !important;
+}
+
+/* Tamaño 300x200, centrada y subida para foto-6.jpg.png */
+.image-png7 {
+    width: 300px !important;
+    height: 200px !important;
+    left: 50% !important;
+    transform: translate(-50%, -310px) !important;
+}
+
+.image-png7 .rectangle-11 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Acomoda foto-8 y foto-9 una debajo de la otra, centradas y proporcionadas */
+.image-png3,
+.image-png4 {
+    left: 20px !important;
+    right: 20px !important;
+    width: calc(100% - 40px) !important;
+    height: 220px !important;
+}
+
+.image-png3 .rectangle-15,
+.image-png4 .rectangle-14 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Separa la segunda foto (foto-9) para que quede justo debajo de la primera */
+.image-png4 {
+    transform: translateY(-160px) !important;
+}
+
+/* Reduce la altura de la foto en el callejón empedrado (foto-5) */
+.image-png6 {
+    height: 210px !important;
+}
+
+.image-png6 .rectangle-13 {
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Reduce el tamaño de foto-5.jpg.png */
+.image-png6 {
+    width: 300px !important;   /* <-- Cambia el ancho */
+    height: 200px !important;  /* <-- Cambia el alto */
+    left: 50% !important;
+    transform: translate(-50%, -130px) !important;
+}
+
+.image-png6 .rectangle-13 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.image-png8 {
+    width: 300px !important;
+    height: 200px !important;
+    left: 50% !important;
+    transform: translate(-50%, -255px) !important;
+}
+
+.image-png8 .rectangle-12 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.image-png3 {
+    width: 300px !important;
+    height: 200px !important;
+    left: 50% !important;
+    transform: translate(-50%, -320px) !important;
+}
+
+.image-png3 .rectangle-15 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.image-png4 {
+    width: 300px !important;
+    height: 200px !important;
+    left: 50% !important;
+    transform: translate(-50%, -20px) !important;
+}
+
+.image-png4 .rectangle-14 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+  </style>
+  <title>Tren de Reserva - Club de Ciclismo</title>
+</head>
+<body>
+
+  <!-- Lienzo JavaScript de partículas aerodinámicas y engranajes -->
+  <canvas id="cyclingCanvas"></canvas>
+
+  <!-- HUD Interactivo en React (Pelotón en Movimiento + Modo Sprint) -->
+  <div id="react-peloton-hud"></div>
+
+  <!-- Menú desplegable de las 3 rayitas -->
+  <nav id="navDrawer" class="nav-drawer">
+    <button type="button" class="close-drawer" onclick="toggleMenu()">&times;</button>
+    <div style="color:#ffb703; font-family:'Russo One', sans-serif !important; font-size:19px; margin-bottom:8px;">TREN DE RESERVA 🚴‍♂️</div>
+    <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+    <a href="#carrusel-rutas" onclick="toggleMenu()">Carrusel de Fotos</a>
+    <a href="#estadisticas" onclick="toggleMenu()">Rendimiento del Grupo</a>
+    <a href="#especificaciones" onclick="toggleMenu()">Equipamiento y Rutas</a>
+    <button type="button" onclick="toggleMenu(); openPhotoModal()">Ver Todas las Fotos</button>
+    <a href="#footer-contacto" onclick="toggleMenu()">Contacto y Redes</a>
+  </nav>
+
+  <!-- Ventana Modal Exclusiva para Galería de Fotos -->
+  <div id="mediaModal" class="media-modal" onclick="closeModalOutside(event)">
+    <div class="modal-card">
+      <button type="button" class="modal-close" onclick="closePhotoModal()">&times;</button>
+      <div class="modal-title">Galería (29 Fotos) - Tren de Reserva</div>
+      <p style="font-size:13px; color:#ffffff; margin-bottom:10px;">
+        Toca cualquier fotografía para verla en grande en el carrusel:
+      </p>
+      <div id="photoPreviewGrid" class="preview-grid"></div>
+    </div>
+  </div>
+
+  <!-- Contenedor Principal -->
+  <div id="inicio" class="mobile-320">
+    <!-- Capa de Figuras Geométricas de Ciclismo Animadas por React -->
+    <div id="react-cycling-shapes"></div>
+
+    <div id="footer-contacto" class="rectangle-33">
+      <div class="rectangle-32"></div>
+    </div>
+    <div class="copytight-2021-company-name-all-right-reserved">
+      <div class="copytight-2021-company-name-all-right-reserved2">
+        Copyright 2026 © Tren de Reserva. Todos los derechos reservados
+      </div>
+    </div>
+    <div class="frame-427321417">
+      <div class="about" onclick="scrollToSection('carrusel-rutas')">
+        <div class="about2">Nosotros</div>
+      </div>
+      <div class="help" onclick="scrollToSection('estadisticas')">
+        <div class="help2">Datos</div>
+      </div>
+      <div class="support" onclick="openPhotoModal()">
+        <div class="support2">Fotos</div>
+      </div>
+      <div class="faq" onclick="scrollToSection('especificaciones')">
+        <div class="faq2">Rutas</div>
+      </div>
+    </div>
+    <div class="logo" onclick="scrollToSection('inicio')">
+      <div class="logo2">Tren de Reserva</div>
+    </div>
+    <img class="line-1" src="line-10.svg" />
+<img class="twitter" src="twitter0.svg" style="pointer-events: none; cursor: default;" />
+<img class="instagram" src="instagram0.svg" style="pointer-events: none; cursor: default;" />
+<img class="facebook-f" src="facebook-f0.svg" style="pointer-events: none; cursor: default;" />
+<img class="pinterest-p" src="pinterest-p0.svg" style="pointer-events: none; cursor: default;" />
+<img class="youtube" src="youtube0.svg" style="pointer-events: none; cursor: default;" />
+    <div class="privacy-policy" onclick="openPhotoModal()">
+      <div class="privacy-policy2">Galería del Grupo</div>
+    </div>
+    <div class="terms-and-conditions" onclick="scrollToSection('carrusel-rutas')">
+      <div class="terms-and-conditions2">Álbum de Rodadas</div>
+    </div>
+    <div class="lorem-ipsum-dolor-sit-amet">
+      <div class="commitment-to-sustainability">Pasión por la ruta y la montaña</div>
+    </div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi">
+      <div class="embrace-the-freedom-of-the-open-road-discover-hidden-trails-conquer-new-challenges-and-enjoy-every-moment-on-your-journey-start-your-adventure-today">
+        Disfruta la libertad de rodar en combo. Descubrimos nuevas rutas, superamos cada puerto de montaña y compartimos cada kilómetro.
+      </div>
+    </div>
+
+    <!-- Foto fija inferior -->
+    <div class="image-png" onclick="openPhotoModal()">
+      <img class="rectangle-28" src="foto-12.jpg.png" />
+    </div>
+
+    <div class="lorem-ipsum">
+      <div class="swiftsprint">Ruta Sabana</div>
+    </div>
+    <div class="_174-mm">
+      <div class="_164-mm">164km</div>
+    </div>
+    <div class="rectangle-31">
+      <div class="rectangle-312 animated-bar"></div>
+    </div>
+    <div class="lorem-ipsum2">
+      <div class="urbanglide">Ascensos<br /></div>
+    </div>
+    <div class="_174-mm2">
+      <div class="_170-mm">170km</div>
+    </div>
+    <div class="rectangle-322">
+      <div class="rectangle-323 animated-bar"></div>
+    </div>
+    <div class="lorem-ipsum3">
+      <div class="cruiser-x">Trocha MTB</div>
+    </div>
+    <div class="_174-mm3">
+      <div class="_171-mm">140km</div>
+    </div>
+    <div class="rectangle-332">
+      <div class="rectangle-333 animated-bar"></div>
+    </div>
+    <div class="lorem-ipsum4">
+      <div class="retrorider">Fondo Largo<br /></div>
+    </div>
+    <div class="_174-mm4">
+      <div class="_165-mm">165km</div>
+    </div>
+
+    <!-- Botón 1: Ver Fotos -->
+    <div class="button-png pulse-cta" onclick="openPhotoModal()">
+      <div class="rectangle-2"></div>
+      <div class="explore-now">Ver Fotos</div>
+      <img class="vector" src="vector0.svg" />
+    </div>
+
+    <img class="vector2" src="vector1.svg" />
+
+    <!-- Foto fija sección estadísticas -->
+    <div class="image-png2" onclick="openPhotoModal()">
+      <img class="rectangle-23" src="foto-11.jpg.png" />
+    </div>
+
+    <div class="_70"><div class="_90 stat-pulse">75</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem">
+      <div class="bike-frame-size">Cadencia promedio</div>
+    </div>
+    <div class="rectangle-25"><div class="rectangle-252 animated-bar"></div></div>
+    <div class="_702"><div class="_27 stat-pulse">25</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus">
+      <div class="wheel-size">Salidas al mes</div>
+    </div>
+    <div class="rectangle-26"><div class="rectangle-262 animated-bar"></div></div>
+    <div class="_703"><div class="_100 stat-pulse">120</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus2">
+      <div class="standover-height">Kilómetros fondo</div>
+    </div>
+    <div class="rectangle-27"><div class="rectangle-272 animated-bar"></div></div>
+    <div class="_704"><div class="_48 stat-pulse">10</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem2">
+      <div class="stack">Integrantes activos</div>
+    </div>
+
+    <!-- 3 Fotos fijas del collage -->
+    <div class="image-png3" onclick="openPhotoModal()">
+      <img class="rectangle-15" src="foto-8.jpg.png" />
+    </div>
+    <div class="image-png4" onclick="openPhotoModal()">
+      <img class="rectangle-14" src="foto-9.jpg.png" />
+    </div>
+    <div class="image-png5" onclick="openPhotoModal()">
+      <img class="rectangle-16" src="foto-10.jpg.png" />
+    </div>
+
+    <img class="vector3" src="vector2.svg" />
+    <div id="especificaciones" class="lorem-ipsum-dolor-sit-amet-cons-unde">
+      <div class="convenient-and-flexible">Equipamiento y Modalidades</div>
+    </div>
+    <div class="lorem-ipsum5"><div class="frame-material">Bicicletas</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus3">
+      <div class="aluminum-steel-carbon-fiber-and-titanium">Ruta y Montaña (MTB)</div>
+    </div>
+    <div class="rectangle-18"><div class="rectangle-182 animated-bar"></div></div>
+    <div class="lorem-ipsum6"><div class="drivetrain-components">Punto de Encuentro</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus4">
+      <div class="the-drivetrain-consists-of-the-chain">Belisario, Verjón, Cll 80, P. Simon B. y Nacional. </div>
+    </div>
+    <div class="rectangle-19"><div class="rectangle-192 animated-bar"></div></div>
+    <div class="lorem-ipsum7"><div class="wheel-size2">Nivel del Grupo</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus5">
+      <div class="_26-inch">Intermedio / Avanzado</div>
+    </div>
+    <div class="rectangle-20"><div class="rectangle-202 animated-bar"></div></div>
+    <div class="lorem-ipsum8"><div class="suspension-system">Terreno</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus6">
+      <div class="mountain-bike">Asfalto y Trocha</div>
+    </div>
+
+    <!-- Botón 2: Ver Galería -->
+    <div class="button-png2 pulse-cta" onclick="openPhotoModal()">
+      <div class="rectangle-2"></div>
+      <div class="explore-now">Ver Galería</div>
+      <img class="vector4" src="vector3.svg" />
+    </div>
+
+    <div class="lorem-ipsum-dolor-sit-amet-cons">
+      <div class="cost-effective-transportation">Entrenamiento en grupo</div>
+    </div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam">
+      <div class="cycling-can-save-you-a-significant-amount-of-money-in-the-long-run-with-no-fuel-costs">
+        Rodar acompañado mejora tu resistencia, seguridad en carretera y motivación en cada subida.
+      </div>
+    </div>
+
+    <!-- Botón 3: Explore Now -->
+    <div class="button-png3 pulse-cta" onclick="scrollToSection('estadisticas')">
+      <div class="rectangle-2"></div>
+      <div class="explore-now">Explore Now</div>
+      <img class="vector5" src="vector4.svg" />
+    </div>
+
+    <!-- 3 Fotos fijas de la sección 01, 02, 03 -->
+    <div class="image-png6"><img class="rectangle-13" src="foto-5.jpg.png" /></div>
+    <div class="image-png7"><img class="rectangle-11" src="foto-6.jpg.png" /></div>
+    <div class="image-png8">
+      <img class="rectangle-12" src="foto-7.jpg.png" />
+    </div>
+
+    <div class="_01"><div class="_012">01</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium">
+      <div class="we-invest-in-cutting-edge-technology-to-develop-innovative-and-high-performance-bikes">
+        Planificamos rutas seguras con seguimiento GPS y apoyo total de Popocho como nuestro guia.
+      </div>
+    </div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium2">
+      <div class="we-prioritize-quality-craftsmanship-in-every-aspect-of-our-products">
+        Nadie se queda atrás: mantenemos el espíritu de compañerismo de principio a fin, Jorge siempre nos espera y reune al grupo en cada parada.
+      </div>
+    </div>
+    <div class="_02"><div class="_022">02</div></div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium3">
+      <div class="by-using-premium-materials-we-deliver-products-that-are-durable-reliable-and-built-to-last">
+        Registramos cada salida con fotografías para compartir los mejores momentos de Tren de Reserva.
+      </div>
+    </div>
+    <div class="_03"><div class="_032">03</div></div>
+
+    <!-- Foto fija sección "Una gran rodada cada vez" -->
+    <div class="image-png9"><img class="rectangle-5" src="foto-4.jpg.png" /></div>
+
+    <div class="lorem-ipsum-dolor-sit-amet-cons2">
+      <div class="enjoyable-ride-every-time">Una gran rodada cada vez</div>
+    </div>
+    <div id="parrafo-rodada" class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi2">
+  <div class="our-collection-features-a-wide-range-of-high-quality-bikes-each-bike-is-carefully-selected-for-its-performance-durability-and-comfort-ensuring-a-smooth-and-enjoyable-ride-every-time">
+    Nuestro grupo reúne ciclistas apasionados por el deporte, la disciplina y la amistad sobre dos ruedas.
+  </div>
+</div>
+
+    <!-- Foto fija limpia sin botón de reproducción -->
+    <div class="image-png10" onclick="openPhotoModal()"><img class="rectangle-4" src="foto-3.jpg.png" /></div>
+    
+    <div id="estadisticas" class="lorem-ipsum9"><div class="speed">Velocidad</div></div>
+    <div class="_43-kph"><div class="_43-kph2 stat-pulse">43Kph</div></div>
+    <div class="lorem-ipsum10"><div class="road">Distancia</div></div>
+    <div class="_32-km"><div class="_32-km2 stat-pulse">120Km</div></div>
+    <div class="lorem-ipsum11"><div class="weight">Desnivel</div></div>
+    <div class="_32-kg"><div class="_32-kg2 stat-pulse">1800m</div></div>
+
+    <!-- =================================================================== -->
+    <!-- CARRUSEL INTERACTIVO INNOVADOR CON MAZO 3D, SWIPE Y AUTO-PLAY       -->
+    <!-- =================================================================== -->
+    <div id="carrusel-rutas" class="image-png11">
+      <div id="deckBack1" class="carousel-deck-back-1"></div>
+      <div id="deckBack2" class="carousel-deck-back-2"></div>
+
+      <div class="carousel-live-badge">
+        <span class="live-dot"></span>
+        <span>Galería · Desliza</span>
+      </div>
+
+      <button type="button" id="autoPlayBtn" class="carousel-autoplay-btn" onclick="toggleCarouselAutoplay(event)">
+        ▶ Auto
+      </button>
+
+      <img id="carouselImg" class="rectangle-3" src="foto-1.jpg.png" />
+
+      <div class="carousel-progress-track">
+        <div id="carouselProgressFill" class="carousel-progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="lorem-ipsum-dolor-sit-amet2">
+      <div id="carouselTitle" class="premium-bikes">Tren de Reserva</div>
+    </div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi3">
+      <div id="carouselDesc" class="our-collection-features-a-wide-range-of-high-quality-bikes-from-sleek-road-bikes-to-durable-mountain-bikes-and-versatile-hybrid-models">
+        Rodadas de ruta y montaña. Explorar nuestras fotos del grupo.
+      </div>
+    </div>
+
+    <!-- Flechas Izquierda y Derecha: ubicadas justo AL FRENTE de 01 - 29 -->
+    <img class="arrow-png" src="arrow-png0.svg" onclick="nextSlide()" title="Siguiente foto" />
+    <img class="arrow-png2" src="arrow-png1.svg" onclick="prevSlide()" title="Foto anterior" />
+    <div id="carouselCounterBox" class="_01-04">
+      <div id="carouselCounter" class="_01-042">01 - 29</div>
+    </div>
+
+    <div class="lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-sed">
+      <div class="we-re-passionate-about-all-things-cycling">APASIONADOS POR EL CICLISMO</div>
+    </div>
+    <div class="sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam">
+      <div class="welcome-here-we-ve-got-everything-you-need-to-elevate-your-biking-experience">
+        ¡Bienvenidos! Aquí compartimos nuestras rutas, fotos y experiencias de cada rodada.
+      </div>
+    </div>
+
+    <!-- Botón 5: Explore Now Principal -->
+    <div class="button-png5 pulse-cta" onclick="scrollToSection('carrusel-rutas')">
+      <div class="rectangle-2"></div>
+      <div class="explore-now">Explore Now</div>
+      <img class="vector8" src="vector7.svg" />
+    </div>
+
+    <!-- Foto Principal de Portada (Hero) -->
+    <div class="image-png12"><img class="rectangle-1" src="foto-2.jpg.png" /></div>
+    
+    <!-- Cabecera Unificada y Centrada en el Recuadro Negro -->
+    <div class="header-banner">
+      <!-- Menú de las 3 rayitas alineado al centro vertical -->
+      <img class="ic-baseline-menu" src="ic-baseline-menu0.svg" onclick="toggleMenu()" />
+
+      <!-- Título Principal en 2 Renglones + Tren Bala Moderno y Ciclista Líder -->
+      <div class="logo3">
+        <div class="ride-it">
+          <div class="title-stack">
+            <span class="title-line-1">TREN DE</span>
+            <span class="title-line-2">RESERVA</span>
+          </div>
+          <div class="modern-train-box">
+            <svg id="modernTrainSVG" width="56" height="36" viewBox="0 0 110 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="hullGrad" x1="12" y1="14" x2="72" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#ffb703"/>
+                  <stop offset="45%" stop-color="#ff6b00"/>
+                  <stop offset="100%" stop-color="#e11d48"/>
+                </linearGradient>
+                <linearGradient id="beamGrad" x1="74" y1="27" x2="88" y2="27" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Estelas de velocidad detrás del tren -->
+              <line class="speed-line" x1="2" y1="18" x2="16" y2="18" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+              <line class="speed-line" x1="0" y1="24" x2="13" y2="24" stroke="#ffb703" stroke-width="2" stroke-linecap="round"/>
+              <line class="speed-line" x1="4" y1="30" x2="15" y2="30" stroke="#ff5500" stroke-width="1.8" stroke-linecap="round"/>
+
+              <!-- Vía futurista / carretera -->
+              <line x1="6" y1="44" x2="106" y2="44" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.65"/>
+              <line class="rail-dash" x1="8" y1="48" x2="104" y2="48" stroke="#ffb703" stroke-width="1.6" stroke-dasharray="6 5"/>
+
+              <!-- Haz de luz LED delantero -->
+              <polygon class="headlight-beam" points="73,24 88,18 88,36 73,31" fill="url(#beamGrad)"/>
+
+              <!-- Cuerpo principal del Tren Bala -->
+              <g id="trainChassis">
+                <rect x="15" y="31" width="54" height="5" rx="2.5" fill="#0f172a"/>
+                <path d="M16 15 H53 C63 15 73 22 76 29 C76.6 30.8 75.3 32.5 73.4 32.5 H16 C14.3 32.5 13 31.2 13 29.5 V18 C13 16.3 14.3 15 16 15 Z" fill="url(#hullGrad)"/>
+                <path d="M17 15 H52 C56 15 60 16.5 63 18.5 H16 V16 C16 15.4 16.4 15 17 15 Z" fill="#0f172a"/>
+                <path d="M58 19.5 H64 C68.5 21.5 71.5 24 73 26.5 H59 C58.2 26.5 57.6 25.8 57.7 25 L58 19.5 Z" fill="#0f172a" stroke="#00d4ff" stroke-width="1.1"/>
+                <rect x="19" y="20" width="10" height="5.5" rx="1.8" fill="#0f172a" stroke="#ffd166" stroke-width="0.9"/>
+                <rect x="32" y="20" width="10" height="5.5" rx="1.8" fill="#0f172a" stroke="#ffd166" stroke-width="0.9"/>
+                <rect x="45" y="20" width="9" height="5.5" rx="1.8" fill="#0f172a" stroke="#ffd166" stroke-width="0.9"/>
+                <path d="M14 28.5 H72" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="73.5" cy="28" r="2.2" fill="#ffffff"/>
+              </g>
+
+              <!-- Ruedas del tren -->
+              <g class="train-wheel" style="transform-origin: 24px 37.5px;">
+                <circle cx="24" cy="37.5" r="4.2" fill="#0f172a" stroke="#ffb703" stroke-width="1.5"/>
+                <line x1="20.8" y1="37.5" x2="27.2" y2="37.5" stroke="#00d4ff" stroke-width="1.1"/>
+                <line x1="24" y1="34.3" x2="24" y2="40.7" stroke="#00d4ff" stroke-width="1.1"/>
+              </g>
+              <g class="train-wheel" style="transform-origin: 42px 37.5px;">
+                <circle cx="42" cy="37.5" r="4.2" fill="#0f172a" stroke="#ffb703" stroke-width="1.5"/>
+                <line x1="38.8" y1="37.5" x2="45.2" y2="37.5" stroke="#00d4ff" stroke-width="1.1"/>
+                <line x1="42" y1="34.3" x2="42" y2="40.7" stroke="#00d4ff" stroke-width="1.1"/>
+              </g>
+              <g class="train-wheel" style="transform-origin: 61px 37.5px;">
+                <circle cx="61" cy="37.5" r="4.2" fill="#0f172a" stroke="#ffb703" stroke-width="1.5"/>
+                <line x1="57.8" y1="37.5" x2="64.2" y2="37.5" stroke="#00d4ff" stroke-width="1.1"/>
+                <line x1="61" y1="34.3" x2="61" y2="40.7" stroke="#00d4ff" stroke-width="1.1"/>
+              </g>
+
+              <!-- Ciclista líder pedaleando al frente del tren -->
+              <g id="headerCyclist">
+                <g class="train-wheel" style="transform-origin: 86px 38px;">
+                  <circle cx="86" cy="38" r="4.5" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+                  <line x1="81.5" y1="38" x2="90.5" y2="38" stroke="#ffb703" stroke-width="1"/>
+                </g>
+                <g class="train-wheel" style="transform-origin: 101px 38px;">
+                  <circle cx="101" cy="38" r="4.5" stroke="#00d4ff" stroke-width="1.5" fill="none"/>
+                  <line x1="96.5" y1="38" x2="105.5" y2="38" stroke="#ffb703" stroke-width="1"/>
+                </g>
+                <path d="M86 38 L92 31 L99 31 L93 38 Z M99 31 L101 38" stroke="#ffb703" stroke-width="1.5" fill="none"/>
+                <circle cx="97" cy="23" r="2.5" fill="#ffffff"/>
+                <path d="M91 31 L95 26 L100 28" stroke="#ff5500" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- 1. LÓGICA JAVASCRIPT PRINCIPAL + POSICIONAMIENTO DE FLECHAS Y SWIPE     -->
+  <!-- ======================================================================= -->
+  <script>
+    window.SPRINT_MODE = false;
+
+    function toggleMenu() {
+      document.getElementById('navDrawer').classList.toggle('open');
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Posiciona las flechas (< y >) exactamente al frente (misma altura) de "01 - 29"
+    function alignCarouselArrowsWithCounter() {
+      const counterBox = document.getElementById('carouselCounterBox');
+      const nextArrow = document.querySelector('.arrow-png');   // Derecha (>)
+      const prevArrow = document.querySelector('.arrow-png2');  // Izquierda (<)
+
+      if (!counterBox || !nextArrow || !prevArrow) return;
+
+      const counterTop = counterBox.offsetTop;
+      const counterHeight = counterBox.offsetHeight || 24;
+      const arrowSize = 40;
+      const alignedTop = Math.round(counterTop + (counterHeight / 2) - (arrowSize / 2));
+
+      prevArrow.style.setProperty('top', alignedTop + 'px', 'important');
+      prevArrow.style.setProperty('left', 'auto', 'important');
+      prevArrow.style.setProperty('right', '68px', 'important');
+
+      nextArrow.style.setProperty('top', alignedTop + 'px', 'important');
+      nextArrow.style.setProperty('left', 'auto', 'important');
+      nextArrow.style.setProperty('right', '20px', 'important');
+    }
+
+    // Listado conectado con las 29 fotos (.jpg.png)
+    const slides = [
+      { img: "foto-1.jpg.png", title: "Tren de Reserva", desc: "Rodadas de ruta y montaña. Usa las flechas o desliza para explorar nuestras 29 fotos del grupo." },
+      { img: "foto-2.jpg.png", title: "Salidas de Fondo", desc: "Kilómetros de resistencia en carretera trabajando relevos en equipo con todo el pelotón." },
+      { img: "foto-3.jpg.png", title: "Retos de Montaña", desc: "Ascensos exigentes y coronando los mejores puertos de nuestra región." },
+      { img: "foto-4.jpg.png", title: "Aventura MTB", desc: "Rutas destapadas, trochas técnicas y paisajes increíbles en cada salida." },
+      { img: "foto-5.jpg.png", title: "Pelotón en Ruta", desc: "Ritmo constante y compañerismo en cada kilómetro recorrido." },
+      { img: "foto-6.jpg.png", title: "Coronando el Alto", desc: "El esfuerzo en la subida siempre tiene la mejor recompensa en la cima." },
+      { img: "foto-7.jpg.png", title: "Parada de Hidratación", desc: "Recargando energía y compartiendo anécdotas antes de seguir rodando." },
+      { img: "foto-8.jpg.png", title: "Madrugón Ciclista", desc: "Arrancando desde temprano con toda la actitud de Tren de Reserva." },
+      { img: "foto-9.jpg.png", title: "Trocha y Naturaleza", desc: "Explorando nuevos caminos y paisajes únicos sobre dos ruedas." },
+      { img: "foto-10.jpg.png", title: "Trabajo en Equipo", desc: "Nadie se queda atrás: rodamos juntos de principio a fin." },
+      { img: "foto-11.jpg.png", title: "Descenso Técnico", desc: "Concentración, técnica y adrenalina en cada curva." },
+      { img: "foto-12.jpg.png", title: "Fin de Semana", desc: "La mejor forma de disfrutar el domingo es en bicicleta con amigos." },
+      { img: "foto-13.jpg.png", title: "Meta Cumplida", desc: "Otro reto superado para la historia de Tren de Reserva." },
+      { img: "foto-14.jpg.png", title: "Pasión por el Pedal", desc: "Disciplina, constancia y buena energía en cada salida." },
+      { img: "foto-15.jpg.png", title: "Ruta Larga", desc: "Sumando kilómetros y fortaleciendo el grupo en cada jornada." },
+      { img: "foto-16.jpg.png", title: "Paisajes de Montaña", desc: "Vistas inolvidables que solo se disfrutan llegando en bici." },
+      { img: "foto-17.jpg.png", title: "Familia Ciclista", desc: "Más que un grupo de entrenamiento, una gran amistad." },
+      { img: "foto-18.jpg.png", title: "Puerto de Montaña", desc: "Superando cada rampa con fuerza y determinación." },
+      { img: "foto-19.jpg.png", title: "Rodada Especial", desc: "Momentos memorables compartidos en carretera y montaña." },
+      { img: "foto-20.jpg.png", title: "Energía al 100%", desc: "Pedaleando fuerte con la mejor actitud del grupo." },
+      { img: "foto-21.jpg.png", title: "Rutas de Altura", desc: "Conquistando cumbres y disfrutando el aire puro de la montaña." },
+      { img: "foto-22.jpg.png", title: "Espíritu Deportivo", desc: "Cada salida es una oportunidad para superarnos." },
+      { img: "foto-23.jpg.png", title: "Km tras Km", desc: "La constancia nos lleva cada vez más lejos." },
+      { img: "foto-24.jpg.png", title: "Camaradería", desc: "Risas, deporte y apoyo mutuo en toda la ruta." },
+      { img: "foto-25.jpg.png", title: "Explorando Senderos", desc: "Descubriendo nuevos destinos en MTB y ruta." },
+      { img: "foto-26.jpg.png", title: "Ritmo de Pelotón", desc: "Sincronía y velocidad en cada tramo plano." },
+      { img: "foto-27.jpg.png", title: "Cima Conquistada", desc: "La satisfacción de llegar juntos hasta lo más alto." },
+      { img: "foto-28.jpg.png", title: "Rodada Dominical", desc: "Tradición ciclista que nos une cada semana." },
+      { img: "foto-29.jpg.png", title: "Tren de Reserva", desc: "¡Listos para nuestra próxima gran aventura sobre ruedas!" }
+    ];
+
+    let currentSlide = 0;
+    let autoplayTimer = null;
+
+    function updateCarousel(direction = 1) {
+      const slide = slides[currentSlide];
+      const numActual = String(currentSlide + 1).padStart(2, '0');
+      const totalSlides = String(slides.length).padStart(2, '0');
+      const imgEl = document.getElementById('carouselImg');
+      const titleEl = document.getElementById('carouselTitle');
+      const descEl = document.getElementById('carouselDesc');
+      const counterEl = document.getElementById('carouselCounter');
+      const progressFill = document.getElementById('carouselProgressFill');
+      const deck1 = document.getElementById('deckBack1');
+      const deck2 = document.getElementById('deckBack2');
+
+      if (typeof gsap !== 'undefined' && imgEl) {
+        gsap.fromTo(imgEl,
+          { opacity: 0.35, x: direction * 34, rotation: direction * 2.5, scale: 0.94 },
+          { opacity: 1, x: 0, rotation: 0, scale: 1, duration: 0.42, ease: 'back.out(1.4)' }
+        );
+        if (titleEl) {
+          gsap.fromTo(titleEl, { opacity: 0.4, y: 6 }, { opacity: 1, y: 0, duration: 0.3 });
+        }
+        if (counterEl) {
+          gsap.fromTo(counterEl, { scale: 1.25 }, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        }
+      }
+
+      if (deck1 && deck2) {
+        const tilt = (currentSlide % 2 === 0) ? 1 : -1;
+        deck1.style.transform = `rotate(${-3.5 * tilt}deg) translate(${-5 * tilt}px, 4px) scale(0.97)`;
+        deck2.style.transform = `rotate(${3.2 * tilt}deg) translate(${6 * tilt}px, 5px) scale(0.96)`;
+      }
+
+      imgEl.src = slide.img;
+      titleEl.textContent = slide.title;
+      descEl.textContent = slide.desc;
+      counterEl.textContent = `${numActual} - ${totalSlides}`;
+
+      if (progressFill) {
+        const pct = ((currentSlide + 1) / slides.length) * 100;
+        progressFill.style.width = `${pct}%`;
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel(1);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel(-1);
+    }
+
+    function toggleCarouselAutoplay(event) {
+      if (event) event.stopPropagation();
+      const btn = document.getElementById('autoPlayBtn');
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+        if (btn) btn.textContent = '▶ Auto';
+      } else {
+        nextSlide();
+        autoplayTimer = setInterval(nextSlide, 2600);
+        if (btn) btn.textContent = '⏸ Pausa';
+      }
+    }
+
+    // Soporte táctil (Swipe) para pasar las fotos deslizando con el dedo o ratón
+    (function initCarouselSwipe() {
+      const container = document.getElementById('carrusel-rutas');
+      if (!container) return;
+      let startX = 0;
+      let isDragging = false;
+
+      container.addEventListener('pointerdown', (e) => {
+        if (e.target.id === 'autoPlayBtn') return;
+        startX = e.clientX;
+        isDragging = true;
+      });
+
+      container.addEventListener('pointerup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = e.clientX - startX;
+        if (Math.abs(diff) > 35) {
+          if (diff < 0) nextSlide();
+          else prevSlide();
+        }
+      });
+
+      container.addEventListener('pointercancel', () => {
+        isDragging = false;
+      });
+    })();
+
+    function renderAllPhotosModal() {
+      const grid = document.getElementById('photoPreviewGrid');
+      grid.innerHTML = '';
+      slides.forEach((slide, index) => {
+        const img = document.createElement('img');
+        img.src = slide.img;
+        img.alt = `Foto ${index + 1} - ${slide.title}`;
+        img.onclick = () => {
+          currentSlide = index;
+          updateCarousel(1);
+          closePhotoModal();
+          scrollToSection('carrusel-rutas');
+        };
+        img.style.cursor = 'pointer';
+        grid.appendChild(img);
+      });
+    }
+
+    function openPhotoModal() {
+      const modal = document.getElementById('mediaModal');
+      modal.classList.add('active');
+      renderAllPhotosModal();
+    }
+
+    function closePhotoModal() {
+      document.getElementById('mediaModal').classList.remove('active');
+    }
+
+    function closeModalOutside(event) {
+      if (event.target.id === 'mediaModal') closePhotoModal();
+    }
+
+    // =========================================================================
+    // MOTOR CANVAS JAVASCRIPT: RÁFAGAS DE VIENTO, CHISPAS Y RUEDAS GIRATORIAS
+    // =========================================================================
+    (function initCyclingCanvas() {
+      const canvas = document.getElementById('cyclingCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        alignCarouselArrowsWithCounter();
+      });
+
+      const colors = ['#ff5500', '#ffb703', '#00d4ff', '#ffffff'];
+      const windLines = Array.from({ length: 24 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        len: 35 + Math.random() * 85,
+        speed: 3 + Math.random() * 6,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: 0.15 + Math.random() * 0.35
+      }));
+
+      const floatingGears = Array.from({ length: 12 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: 8 + Math.random() * 14,
+        angle: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.06,
+        vx: 0.6 + Math.random() * 1.4,
+        vy: -0.3 + Math.random() * 0.6,
+        color: colors[Math.floor(Math.random() * 3)]
+      }));
+
+      let pointer = { x: width / 2, y: height / 2, active: false };
+      window.addEventListener('pointermove', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        pointer.active = true;
+      });
+
+      function drawSpokeWheel(x, y, r, angle, color) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.strokeStyle = color;
+        ctx.globalAlpha = 0.28;
+        ctx.lineWidth = 1.4;
+
+        ctx.beginPath();
+        ctx.arc(0, 0, r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        for (let i = 0; i < 6; i++) {
+          const a = (Math.PI / 3) * i;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
+      function animateCanvas() {
+        ctx.clearRect(0, 0, width, height);
+        const mult = window.SPRINT_MODE ? 2.6 : 1;
+
+        windLines.forEach((line) => {
+          line.x += line.speed * mult;
+          if (line.x - line.len > width) {
+            line.x = -line.len;
+            line.y = Math.random() * height;
+          }
+
+          ctx.save();
+          ctx.strokeStyle = line.color;
+          ctx.globalAlpha = window.SPRINT_MODE ? Math.min(0.75, line.alpha * 1.8) : line.alpha;
+          ctx.lineWidth = window.SPRINT_MODE ? 2.2 : 1.3;
+          ctx.beginPath();
+          ctx.moveTo(line.x, line.y);
+          ctx.lineTo(line.x - line.len * (window.SPRINT_MODE ? 1.5 : 1), line.y);
+          ctx.stroke();
+          ctx.restore();
+        });
+
+        floatingGears.forEach((g) => {
+          g.x += g.vx * mult;
+          g.y += g.vy * mult;
+          g.angle += g.rotSpeed * mult * 1.5;
+
+          if (pointer.active) {
+            const dx = pointer.x - g.x;
+            const dy = pointer.y - g.y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 140) {
+              g.angle += 0.08;
+              g.x -= dx * 0.01;
+              g.y -= dy * 0.01;
+            }
+          }
+
+          if (g.x > width + 30) g.x = -30;
+          if (g.y > height + 30) g.y = -30;
+          if (g.y < -30) g.y = height + 30;
+
+          drawSpokeWheel(g.x, g.y, g.radius, g.angle, g.color);
+        });
+
+        requestAnimationFrame(animateCanvas);
+      }
+
+      animateCanvas();
+    })();
+
+    // =========================================================================
+    // ANIMACIONES GSAP EN ELEMENTOS DE LA INTERFAZ
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      alignCarouselArrowsWithCounter();
+      setTimeout(alignCarouselArrowsWithCounter, 150);
+      window.addEventListener('load', alignCarouselArrowsWithCounter);
+
+      if (typeof gsap === 'undefined') return;
+
+      gsap.to('.arrow-png', {
+        x: 3.5,
+        duration: 0.65,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('.arrow-png2', {
+        x: -3.5,
+        duration: 0.65,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('#deckBack1', {
+        rotation: -4.8,
+        duration: 1.8,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('#deckBack2', {
+        rotation: 4.5,
+        duration: 2.1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('#trainChassis', {
+        y: -1.4,
+        duration: 0.3,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('#headerCyclist', {
+        y: -1.8,
+        x: 1.5,
+        duration: 0.28,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.to('.train-wheel', {
+        rotation: 360,
+        duration: 0.6,
+        repeat: -1,
+        ease: 'none'
+      });
+
+      gsap.to('.headlight-beam', {
+        opacity: 0.45,
+        duration: 0.45,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+
+      gsap.to('.rail-dash', {
+        strokeDashoffset: -11,
+        duration: 0.3,
+        repeat: -1,
+        ease: 'none'
+      });
+
+      gsap.fromTo('.speed-line',
+        { x: 5, opacity: 0.95 },
+        {
+          x: -8,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.12,
+          repeat: -1,
+          ease: 'power2.out'
+        }
+      );
+
+      gsap.to('.stat-pulse', {
+        scale: 1.08,
+        duration: 0.9,
+        stagger: 0.15,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+
+      gsap.fromTo('.animated-bar',
+        { scaleX: 0.72 },
+        {
+          scaleX: 1,
+          duration: 1.4,
+          stagger: 0.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power1.inOut'
+        }
+      );
+
+      gsap.to('.pulse-cta', {
+        y: -2.5,
+        duration: 1.1,
+        stagger: 0.25,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut'
+      });
+    });
+  </script>
+
+  <!-- ======================================================================= -->
+  <!-- 2. COMPONENTES REACT: FIGURAS DE CICLISMO Y PELOTÓN EN VIVO             -->
+  <!-- ======================================================================= -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    /* SVG de Ciclista animado con pedaleo y ruedas giratorias */
+    function AnimatedCyclistSVG({ color = "#ffb703", jersey = "#ff5500", sprint = false, scale = 1 }) {
+      const wheelSpeed = sprint ? "0.28s" : "0.75s";
+      const pedalSpeed = sprint ? "0.35s" : "0.9s";
+
+      return (
+        <svg
+          width={64 * scale}
+          height={42 * scale}
+          viewBox="0 0 90 60"
+          fill="none"
+          style={{ animation: `floatCyclist ${sprint ? "0.35s" : "0.7s"} ease-in-out infinite` }}
+        >
+          <line x1="2" y1="22" x2="16" y2="22" stroke="#00d4ff" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+          <line x1="0" y1="32" x2="12" y2="32" stroke="#ffb703" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+
+          {/* Rueda Trasera */}
+          <g style={{ transformOrigin: "24px 44px", animation: `spinGear ${wheelSpeed} linear infinite` }}>
+            <circle cx="24" cy="44" r="11" stroke={color} strokeWidth="2.4" />
+            <line x1="13" y1="44" x2="35" y2="44" stroke="#00d4ff" strokeWidth="1.2" />
+            <line x1="24" y1="33" x2="24" y2="55" stroke="#00d4ff" strokeWidth="1.2" />
+            <line x1="16" y1="36" x2="32" y2="52" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+          </g>
+
+          {/* Rueda Delantera */}
+          <g style={{ transformOrigin: "66px 44px", animation: `spinGear ${wheelSpeed} linear infinite` }}>
+            <circle cx="66" cy="44" r="11" stroke={color} strokeWidth="2.4" />
+            <line x1="55" y1="44" x2="77" y2="44" stroke="#00d4ff" strokeWidth="1.2" />
+            <line x1="66" y1="33" x2="66" y2="55" stroke="#00d4ff" strokeWidth="1.2" />
+            <line x1="58" y1="36" x2="74" y2="52" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+          </g>
+
+          {/* Marco aerodinámico de bicicleta */}
+          <path
+            d="M24 44 L39 27 L57 27 L44 44 Z M57 27 L66 44 M39 27 L36 22 M55 23 L60 23"
+            stroke="#ffffff"
+            strokeWidth="2.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+
+          {/* Plato y biela giratoria (pedaleo) */}
+          <g style={{ transformOrigin: "44px 44px", animation: `spinGear ${pedalSpeed} linear infinite` }}>
+            <circle cx="44" cy="44" r="4.2" stroke="#ffb703" strokeWidth="2" />
+            <line x1="44" y1="38" x2="44" y2="50" stroke="#00d4ff" strokeWidth="2.2" strokeLinecap="round" />
+          </g>
+
+          {/* Cuerpo del ciclista */}
+          <path
+            d="M36 23 C42 15, 50 15, 56 21"
+            stroke={jersey}
+            strokeWidth="4.5"
+            strokeLinecap="round"
+          />
+          <path d="M53 19 L59 24" stroke="#ffd166" strokeWidth="2.4" strokeLinecap="round" />
+          <circle cx="57" cy="12" r="4.2" fill="#00d4ff" />
+          <path d="M53 11 C56 7, 62 8, 63 12 Z" fill={jersey} />
+        </svg>
+      );
+    }
+
+    /* Piñón / Engranaje ciclista geométrico en React */
+    function CyclingSprocketSVG({ size = 54, color = "#ff5500", reverse = false, sprint = false }) {
+      const teeth = Array.from({ length: 12 }, (_, i) => i * 30);
+      const duration = sprint ? "2.2s" : "7s";
+      return (
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 60 60"
+          fill="none"
+          style={{
+            opacity: 0.24,
+            animation: `${reverse ? "spinGearReverse" : "spinGear"} ${duration} linear infinite`
+          }}
+        >
+          <circle cx="30" cy="30" r="18" stroke={color} strokeWidth="3" />
+          <circle cx="30" cy="30" r="8" stroke="#00d4ff" strokeWidth="2" />
+          {teeth.map((deg) => (
+            <rect
+              key={deg}
+              x="28"
+              y="6"
+              width="4"
+              height="6"
+              rx="1"
+              fill={color}
+              transform={`rotate(${deg} 30 30)`}
+            />
+          ))}
+        </svg>
+      );
+    }
+
+    /* Componente 1: Figuras geométricas alusivas al ciclismo distribuidas en el contenedor */
+    function CyclingShapesLayer() {
+      const [sprint, setSprint] = useState(false);
+
+      useEffect(() => {
+        const handler = (e) => setSprint(e.detail);
+        window.addEventListener("sprintToggle", handler);
+        return () => window.removeEventListener("sprintToggle", handler);
+      }, []);
+
+      return (
+        <>
+          <div style={{ position: "absolute", top: "460px", right: "-14px" }}>
+            <CyclingSprocketSVG size={68} color="#ffb703" sprint={sprint} />
+          </div>
+          <div style={{ position: "absolute", top: "920px", left: "-18px" }}>
+            <CyclingSprocketSVG size={74} color="#00d4ff" reverse={true} sprint={sprint} />
+          </div>
+          <div style={{ position: "absolute", top: "1480px", right: "-16px" }}>
+            <CyclingSprocketSVG size={70} color="#ff5500" sprint={sprint} />
+          </div>
+          <div style={{ position: "absolute", top: "2120px", left: "-15px" }}>
+            <CyclingSprocketSVG size={66} color="#ffb703" reverse={true} sprint={sprint} />
+          </div>
+
+          <svg
+            width="320"
+            height="70"
+            viewBox="0 0 320 70"
+            fill="none"
+            style={{ position: "absolute", top: "1180px", left: "0", opacity: 0.22 }}
+          >
+            <path
+              d="M0 60 L55 25 L105 48 L175 12 L240 45 L285 20 L320 55"
+              stroke="#00d4ff"
+              strokeWidth="2.5"
+              strokeDasharray="6 4"
+            />
+            <circle cx="175" cy="12" r="5" fill="#ff5500" />
+          </svg>
+        </>
+      );
+    }
+
+    /* Componente 2: Barra interactiva React con Pelotón de Ciclistas y Botón Turbo Sprint */
+    function CyclingPelotonHUD() {
+      const [sprint, setSprint] = useState(false);
+      const [rpm, setRpm] = useState(92);
+      const [speed, setSpeed] = useState(38);
+
+      useEffect(() => {
+        const interval = setInterval(() => {
+          if (sprint) {
+            setRpm(114 + Math.floor(Math.random() * 8));
+            setSpeed(52 + Math.floor(Math.random() * 6));
+          } else {
+            setRpm(89 + Math.floor(Math.random() * 6));
+            setSpeed(36 + Math.floor(Math.random() * 5));
+          }
+        }, 650);
+        return () => clearInterval(interval);
+      }, [sprint]);
+
+      const toggleSprint = () => {
+        const nextState = !sprint;
+        setSprint(nextState);
+        window.SPRINT_MODE = nextState;
+        window.dispatchEvent(new CustomEvent("sprintToggle", { detail: nextState }));
+
+        if (typeof gsap !== "undefined") {
+          gsap.globalTimeline.timeScale(nextState ? 2.2 : 1);
+        }
+      };
+
+      return (
+        <div className="peloton-hud-bar">
+          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+            <AnimatedCyclistSVG color="#ffb703" jersey="#ff5500" sprint={sprint} scale={0.78} />
+            <AnimatedCyclistSVG color="#00d4ff" jersey="#ffb703" sprint={sprint} scale={0.72} />
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1.15 }}>
+            <span style={{ color: "#00d4ff", fontSize: "10px", fontWeight: 700, textTransform: "uppercase" }}>
+              {sprint ? "🔥 Sprint Pelotón" : "🚴‍♂️ Ritmo Grupo"}
+            </span>
+            <span style={{ color: "#ffffff", fontSize: "12px", fontWeight: 800 }}>
+              {speed} km/h · <span style={{ color: "#ffb703" }}>{rpm} RPM</span>
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleSprint}
+            className={`sprint-btn ${sprint ? "active-sprint" : ""}`}
+          >
+            {sprint ? "Normal" : "⚡ Leña"}
+          </button>
+        </div>
+      );
+    }
+
+    const shapesRoot = ReactDOM.createRoot(document.getElementById("react-cycling-shapes"));
+    shapesRoot.render(<CyclingShapesLayer />);
+
+    const hudRoot = ReactDOM.createRoot(document.getElementById("react-peloton-hud"));
+    hudRoot.render(<CyclingPelotonHUD />);
+  </script>
+</body>
+</html>

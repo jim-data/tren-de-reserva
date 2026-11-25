@@ -1,0 +1,2214 @@
+.mobile-320,
+.mobile-320 * {
+  box-sizing: border-box;
+}
+.mobile-320 {
+  background: #ffffff;
+  width: 320px;
+  height: 8352px;
+  position: relative;
+  overflow: hidden;
+}
+.section-13 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-33 {
+  width: 320px;
+  height: 305px;
+  position: absolute;
+  left: 0px;
+  top: 8047px;
+}
+.rectangle-32 {
+  background: #000000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.copytight-2021-company-name-all-right-reserved {
+  width: 256px;
+  height: 36px;
+  position: absolute;
+  left: 16px;
+  top: 8289px;
+}
+.copytight-2021-company-name-all-right-reserved2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 400;
+  position: absolute;
+  right: 17.75%;
+  left: 0%;
+  width: 82.25%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.frame-427321417 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  left: 16px;
+  top: 8130px;
+}
+.about {
+  flex-shrink: 0;
+  width: 52px;
+  height: 20px;
+  position: relative;
+}
+.about2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(
+    --b2-m-left-regular-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--b2-m-left-regular-font-size, 12px);
+  line-height: var(--b2-m-left-regular-line-height, 130%);
+  letter-spacing: var(--b2-m-left-regular-letter-spacing, 0.2px);
+  font-weight: var(--b2-m-left-regular-font-weight, 400);
+  position: absolute;
+  right: 19.23%;
+  left: 0%;
+  width: 80.77%;
+  bottom: 23.08%;
+  top: 0%;
+  height: 76.92%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.help {
+  flex-shrink: 0;
+  width: 42px;
+  height: 20px;
+  position: relative;
+}
+.help2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(
+    --b2-m-left-regular-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--b2-m-left-regular-font-size, 12px);
+  line-height: var(--b2-m-left-regular-line-height, 130%);
+  letter-spacing: var(--b2-m-left-regular-letter-spacing, 0.2px);
+  font-weight: var(--b2-m-left-regular-font-weight, 400);
+  position: absolute;
+  right: 23.81%;
+  left: 0%;
+  width: 76.19%;
+  bottom: 23.08%;
+  top: 0%;
+  height: 76.92%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.support {
+  flex-shrink: 0;
+  width: 69px;
+  height: 20px;
+  position: relative;
+}
+.support2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(
+    --b2-m-left-regular-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--b2-m-left-regular-font-size, 12px);
+  line-height: var(--b2-m-left-regular-line-height, 130%);
+  letter-spacing: var(--b2-m-left-regular-letter-spacing, 0.2px);
+  font-weight: var(--b2-m-left-regular-font-weight, 400);
+  position: absolute;
+  right: 17.39%;
+  left: 0%;
+  width: 82.61%;
+  bottom: 23.08%;
+  top: 0%;
+  height: 76.92%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.faq {
+  flex-shrink: 0;
+  width: 35px;
+  height: 20px;
+  position: relative;
+}
+.faq2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(
+    --b2-m-left-regular-font-family,
+    "Inter-Regular",
+    sans-serif
+  );
+  font-size: var(--b2-m-left-regular-font-size, 12px);
+  line-height: var(--b2-m-left-regular-line-height, 130%);
+  letter-spacing: var(--b2-m-left-regular-letter-spacing, 0.2px);
+  font-weight: var(--b2-m-left-regular-font-weight, 400);
+  position: absolute;
+  right: 20%;
+  left: 0%;
+  width: 80%;
+  bottom: 23.08%;
+  top: 0%;
+  height: 76.92%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  width: 61px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 8083px;
+}
+.logo2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+  position: absolute;
+  right: -9.84%;
+  left: 0%;
+  width: 109.84%;
+  bottom: 2.38%;
+  top: 1.79%;
+  height: 95.83%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.line-1 {
+  width: 288px;
+  height: 0px;
+  position: absolute;
+  left: 16px;
+  top: 8230px;
+  overflow: visible;
+}
+.twitter {
+  width: 19px;
+  height: 15px;
+  position: absolute;
+  left: 196px;
+  top: 8191px;
+  overflow: visible;
+}
+.instagram {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 16px;
+  top: 8191px;
+  overflow: visible;
+}
+.facebook-f {
+  width: 10px;
+  height: 19px;
+  position: absolute;
+  left: 62px;
+  top: 8189px;
+  overflow: visible;
+}
+.pinterest-p {
+  width: 14px;
+  height: 18px;
+  position: absolute;
+  left: 102px;
+  top: 8190px;
+  overflow: visible;
+}
+.youtube {
+  width: 20px;
+  height: 15px;
+  position: absolute;
+  left: 146px;
+  top: 8191px;
+  overflow: visible;
+}
+.privacy-policy {
+  width: 119px;
+  height: 22px;
+  position: absolute;
+  left: 16px;
+  top: 8253px;
+}
+.privacy-policy2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 400;
+  position: absolute;
+  right: 33.61%;
+  left: 0%;
+  width: 66.39%;
+  bottom: 18.18%;
+  top: 0%;
+  height: 81.82%;
+}
+.terms-and-conditions {
+  width: 186px;
+  height: 23px;
+  position: absolute;
+  left: 129px;
+  top: 8254px;
+}
+.terms-and-conditions2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  font-weight: 400;
+  position: absolute;
+  right: 33.33%;
+  left: 0%;
+  width: 66.67%;
+  bottom: 21.74%;
+  top: 0%;
+  height: 78.26%;
+}
+.section-12 {
+  position: absolute;
+  inset: 0;
+}
+.lorem-ipsum-dolor-sit-amet {
+  width: 280px;
+  height: 92px;
+  position: absolute;
+  left: 16px;
+  top: 7044px;
+}
+.commitment-to-sustainability {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi {
+  width: 290px;
+  height: 140px;
+  position: absolute;
+  left: 16px;
+  top: 7152px;
+}
+.embrace-the-freedom-of-the-open-road-discover-hidden-trails-conquer-new-challenges-and-enjoy-every-moment-on-your-journey-start-your-adventure-today {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.image-png {
+  width: 288px;
+  height: 244px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 7316px;
+}
+.rectangle-28 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.lorem-ipsum {
+  width: 156px;
+  height: 26px;
+  position: absolute;
+  left: 16px;
+  top: 7584px;
+}
+.swiftsprint {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h6-m-left-black-semi-font-family, "-", sans-serif);
+  font-size: var(--h6-m-left-black-semi-font-size, 18px);
+  line-height: var(--h6-m-left-black-semi-line-height, 23px);
+  letter-spacing: var(--h6-m-left-black-semi-letter-spacing, 0.14px);
+  font-weight: var(--h6-m-left-black-semi-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 3.85%;
+  top: 7.69%;
+  height: 88.46%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._174-mm {
+  width: 85px;
+  height: 28px;
+  position: absolute;
+  left: 16px;
+  top: 7613px;
+}
+._164-mm {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-31 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 7655px;
+}
+.rectangle-312 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum2 {
+  width: 156px;
+  height: 26px;
+  position: absolute;
+  left: 16px;
+  top: 7672px;
+}
+.urbanglide {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h6-m-left-black-semi-font-family, "-", sans-serif);
+  font-size: var(--h6-m-left-black-semi-font-size, 18px);
+  line-height: var(--h6-m-left-black-semi-line-height, 23px);
+  letter-spacing: var(--h6-m-left-black-semi-letter-spacing, 0.14px);
+  font-weight: var(--h6-m-left-black-semi-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+._174-mm2 {
+  width: 85px;
+  height: 28px;
+  position: absolute;
+  left: 16px;
+  top: 7700px;
+}
+._170-mm {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-322 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 7741px;
+}
+.rectangle-323 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum3 {
+  width: 156px;
+  height: 26px;
+  position: absolute;
+  left: 16px;
+  top: 7760px;
+}
+.cruiser-x {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h6-m-left-black-semi-font-family, "-", sans-serif);
+  font-size: var(--h6-m-left-black-semi-font-size, 18px);
+  line-height: var(--h6-m-left-black-semi-line-height, 23px);
+  letter-spacing: var(--h6-m-left-black-semi-letter-spacing, 0.14px);
+  font-weight: var(--h6-m-left-black-semi-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 3.85%;
+  top: 7.69%;
+  height: 88.46%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._174-mm3 {
+  width: 85px;
+  height: 28px;
+  position: absolute;
+  left: 16px;
+  top: 7789px;
+}
+._171-mm {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-332 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 7831px;
+}
+.rectangle-333 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum4 {
+  width: 156px;
+  height: 26px;
+  position: absolute;
+  left: 16px;
+  top: 7846px;
+}
+.retrorider {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h6-m-left-black-semi-font-family, "-", sans-serif);
+  font-size: var(--h6-m-left-black-semi-font-size, 18px);
+  line-height: var(--h6-m-left-black-semi-line-height, 23px);
+  letter-spacing: var(--h6-m-left-black-semi-letter-spacing, 0.14px);
+  font-weight: var(--h6-m-left-black-semi-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+._174-mm4 {
+  width: 85px;
+  height: 28px;
+  position: absolute;
+  left: 16px;
+  top: 7876px;
+}
+._165-mm {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-png {
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 7928px;
+}
+.rectangle-2 {
+  background: #020102;
+  border-radius: 58px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.explore-now {
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--button-d-center-white-medium-font-family, "-", sans-serif);
+  font-size: var(--button-d-center-white-medium-font-size, 14px);
+  line-height: var(--button-d-center-white-medium-line-height, 19px);
+  letter-spacing: var(--button-d-center-white-medium-letter-spacing, 1.35px);
+  font-weight: var(--button-d-center-white-medium-font-weight, 400);
+  position: absolute;
+  right: 33.07%;
+  left: 12.2%;
+  width: 54.72%;
+  bottom: 32.73%;
+  top: 32.73%;
+  height: 34.55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vector {
+  width: 6.3%;
+  height: 14.55%;
+  position: absolute;
+  right: 19.86%;
+  left: 73.84%;
+  bottom: 41.82%;
+  top: 43.64%;
+  overflow: visible;
+}
+.vector2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 7416px;
+  overflow: visible;
+}
+.section-11 {
+  position: absolute;
+  inset: 0;
+}
+.image-png2 {
+  width: 320px;
+  height: 224px;
+  position: absolute;
+  left: 0px;
+  top: 6288px;
+}
+.rectangle-23 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+._70 {
+  width: 45px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+  top: 6554px;
+}
+._90 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h3-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--h3-m-left-black-regular-font-size, 32px);
+  line-height: var(--h3-m-left-black-regular-line-height, 40px);
+  font-weight: var(--h3-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -16.67%;
+  top: -16.67%;
+  height: 133.33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem {
+  width: 255px;
+  height: 56px;
+  position: absolute;
+  left: 20px;
+  top: 6584px;
+}
+.bike-frame-size {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 25%;
+  top: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-25 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 20px;
+  top: 6652px;
+}
+.rectangle-252 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+._702 {
+  width: 48px;
+  height: 31px;
+  position: absolute;
+  left: 20px;
+  top: 6666px;
+}
+._27 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h3-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--h3-m-left-black-regular-font-size, 32px);
+  line-height: var(--h3-m-left-black-regular-line-height, 40px);
+  font-weight: var(--h3-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -12.9%;
+  top: -16.13%;
+  height: 129.03%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus {
+  width: 243px;
+  height: 56px;
+  position: absolute;
+  left: 20px;
+  top: 6697px;
+}
+.wheel-size {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 25%;
+  top: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-26 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 20px;
+  top: 6765px;
+}
+.rectangle-262 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+._703 {
+  width: 85px;
+  height: 32px;
+  position: absolute;
+  left: 20px;
+  top: 6779px;
+}
+._100 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h3-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--h3-m-left-black-regular-font-size, 32px);
+  line-height: var(--h3-m-left-black-regular-line-height, 40px);
+  font-weight: var(--h3-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -12.5%;
+  top: -12.5%;
+  height: 125%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus2 {
+  width: 249px;
+  height: 56px;
+  position: absolute;
+  left: 20px;
+  top: 6811px;
+}
+.standover-height {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 25%;
+  top: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-27 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 20px;
+  top: 6879px;
+}
+.rectangle-272 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+._704 {
+  width: 45px;
+  height: 33px;
+  position: absolute;
+  left: 20px;
+  top: 6891px;
+}
+._48 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h3-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--h3-m-left-black-regular-font-size, 32px);
+  line-height: var(--h3-m-left-black-regular-line-height, 40px);
+  font-weight: var(--h3-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -9.09%;
+  top: -12.12%;
+  height: 121.21%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem2 {
+  width: 280px;
+  height: 56px;
+  position: absolute;
+  left: 20px;
+  top: 6924px;
+}
+.stack {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 25%;
+  top: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.section-10 {
+  position: absolute;
+  inset: 0;
+}
+.image-png3 {
+  width: 129px;
+  height: 144px;
+  position: absolute;
+  left: 20px;
+  top: 5170px;
+}
+.rectangle-15 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.image-png4 {
+  width: 130px;
+  height: 206px;
+  position: absolute;
+  left: 170px;
+  top: 5112px;
+}
+.rectangle-14 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.image-png5 {
+  width: 288px;
+  height: 233px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 5339px;
+}
+.rectangle-16 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.vector3 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 5474px;
+  overflow: visible;
+}
+.lorem-ipsum-dolor-sit-amet-cons-unde {
+  width: 269px;
+  height: 92px;
+  position: absolute;
+  left: 16px;
+  top: 5596px;
+}
+.convenient-and-flexible {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 8.7%;
+  top: -8.7%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.lorem-ipsum5 {
+  width: 168px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 5712px;
+}
+.frame-material {
+  color: #000000;
+  text-align: left;
+  font-family: var(
+    --s1-m-left-black-semi-font-family,
+    "Mulish-Bold",
+    sans-serif
+  );
+  font-size: var(--s1-m-left-black-semi-font-size, 16px);
+  line-height: var(--s1-m-left-black-semi-line-height, 24px);
+  letter-spacing: var(--s1-m-left-black-semi-letter-spacing, 0.15px);
+  font-weight: var(--s1-m-left-black-semi-font-weight, 700);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus3 {
+  width: 253px;
+  height: 54px;
+  position: absolute;
+  left: 16px;
+  top: 5740px;
+}
+.aluminum-steel-carbon-fiber-and-titanium {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -1.85%;
+  top: -1.85%;
+  height: 103.7%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-18 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 5808px;
+}
+.rectangle-182 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum6 {
+  width: 261px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 5828px;
+}
+.drivetrain-components {
+  color: #000000;
+  text-align: left;
+  font-family: var(
+    --s1-m-left-black-semi-font-family,
+    "Mulish-Bold",
+    sans-serif
+  );
+  font-size: var(--s1-m-left-black-semi-font-size, 16px);
+  line-height: var(--s1-m-left-black-semi-line-height, 24px);
+  letter-spacing: var(--s1-m-left-black-semi-letter-spacing, 0.15px);
+  font-weight: var(--s1-m-left-black-semi-font-weight, 700);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus4 {
+  width: 269px;
+  height: 60px;
+  position: absolute;
+  left: 16px;
+  top: 5852px;
+}
+.the-drivetrain-consists-of-the-chain {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 3.33%;
+  top: 3.33%;
+  height: 93.33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-19 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 5921px;
+}
+.rectangle-192 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum7 {
+  width: 115px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 5941px;
+}
+.wheel-size2 {
+  color: #000000;
+  text-align: left;
+  font-family: var(
+    --s1-m-left-black-semi-font-family,
+    "Mulish-Bold",
+    sans-serif
+  );
+  font-size: var(--s1-m-left-black-semi-font-size, 16px);
+  line-height: var(--s1-m-left-black-semi-line-height, 24px);
+  letter-spacing: var(--s1-m-left-black-semi-letter-spacing, 0.15px);
+  font-weight: var(--s1-m-left-black-semi-font-weight, 700);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus5 {
+  width: 243px;
+  height: 51px;
+  position: absolute;
+  left: 16px;
+  top: 5969px;
+}
+._26-inch {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 23.53%;
+  top: 21.57%;
+  height: 54.9%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rectangle-20 {
+  width: 280px;
+  height: 2px;
+  position: absolute;
+  left: 16px;
+  top: 6036px;
+}
+.rectangle-202 {
+  background: #d8d8d8;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 50%;
+  top: 0%;
+}
+.lorem-ipsum8 {
+  width: 220px;
+  height: 24px;
+  position: absolute;
+  left: 16px;
+  top: 6053px;
+}
+.suspension-system {
+  color: #000000;
+  text-align: left;
+  font-family: var(
+    --s1-m-left-black-semi-font-family,
+    "Mulish-Bold",
+    sans-serif
+  );
+  font-size: var(--s1-m-left-black-semi-font-size, 16px);
+  line-height: var(--s1-m-left-black-semi-line-height, 24px);
+  letter-spacing: var(--s1-m-left-black-semi-letter-spacing, 0.15px);
+  font-weight: var(--s1-m-left-black-semi-font-weight, 700);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus6 {
+  width: 253px;
+  height: 56px;
+  position: absolute;
+  left: 16px;
+  top: 6081px;
+}
+.mountain-bike {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 25%;
+  top: 25%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-png2 {
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 6169px;
+}
+.vector4 {
+  width: 6.3%;
+  height: 14.55%;
+  position: absolute;
+  right: 19.86%;
+  left: 73.84%;
+  bottom: 41.82%;
+  top: 43.64%;
+  overflow: visible;
+}
+.section-9 {
+  position: absolute;
+  inset: 0;
+}
+.lorem-ipsum-dolor-sit-amet-cons {
+  width: 274px;
+  height: 92px;
+  position: absolute;
+  left: 16px;
+  top: 3935px;
+}
+.cost-effective-transportation {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam {
+  width: 280px;
+  height: 84px;
+  position: absolute;
+  left: 16px;
+  top: 4043px;
+}
+.cycling-can-save-you-a-significant-amount-of-money-in-the-long-run-with-no-fuel-costs {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-png3 {
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 4151px;
+}
+.vector5 {
+  width: 6.3%;
+  height: 14.55%;
+  position: absolute;
+  right: 19.86%;
+  left: 73.84%;
+  bottom: 41.82%;
+  top: 43.64%;
+  overflow: visible;
+}
+.image-png6 {
+  width: 320px;
+  height: 396px;
+  position: absolute;
+  left: 0px;
+  top: 4250px;
+}
+.rectangle-13 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.image-png7 {
+  width: 280px;
+  height: 168px;
+  position: absolute;
+  left: 20px;
+  top: 4672px;
+}
+.rectangle-11 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.image-png8 {
+  width: 280px;
+  height: 182px;
+  position: absolute;
+  left: 20px;
+  top: 4866px;
+}
+.rectangle-12 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.section-8 {
+  position: absolute;
+  inset: 0;
+}
+._01 {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  left: 30px;
+  top: 3363px;
+}
+._012 {
+  color: #000000;
+  text-align: left;
+  font-family: "Mulish-SemiBold", sans-serif;
+  font-size: 40px;
+  line-height: 35px;
+  letter-spacing: 0.21px;
+  font-weight: 600;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 5%;
+  top: 7.5%;
+  height: 87.5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium {
+  width: 227px;
+  height: 84px;
+  position: absolute;
+  left: 30px;
+  top: 3427px;
+}
+.we-invest-in-cutting-edge-technology-to-develop-innovative-and-high-performance-bikes {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-t-left-white-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-t-left-white-regular-font-size, 14px);
+  line-height: var(--b1-t-left-white-regular-line-height, 28px);
+  letter-spacing: var(--b1-t-left-white-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-t-left-white-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium2 {
+  width: 228px;
+  height: 84px;
+  position: absolute;
+  left: 30px;
+  top: 3607px;
+}
+.we-prioritize-quality-craftsmanship-in-every-aspect-of-our-products {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-t-left-white-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-t-left-white-regular-font-size, 14px);
+  line-height: var(--b1-t-left-white-regular-line-height, 28px);
+  letter-spacing: var(--b1-t-left-white-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-t-left-white-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+._02 {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  left: 30px;
+  top: 3543px;
+}
+._022 {
+  color: #000000;
+  text-align: left;
+  font-family: "Mulish-SemiBold", sans-serif;
+  font-size: 40px;
+  line-height: 35px;
+  letter-spacing: 0.21px;
+  font-weight: 600;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 5%;
+  top: 7.5%;
+  height: 87.5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium3 {
+  width: 256px;
+  height: 84px;
+  position: absolute;
+  left: 30px;
+  top: 3787px;
+}
+.by-using-premium-materials-we-deliver-products-that-are-durable-reliable-and-built-to-last {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-t-left-white-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-t-left-white-regular-font-size, 14px);
+  line-height: var(--b1-t-left-white-regular-line-height, 28px);
+  letter-spacing: var(--b1-t-left-white-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-t-left-white-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+._03 {
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  left: 30px;
+  top: 3723px;
+}
+._032 {
+  color: #000000;
+  text-align: left;
+  font-family: "Mulish-SemiBold", sans-serif;
+  font-size: 40px;
+  line-height: 35px;
+  letter-spacing: 0.21px;
+  font-weight: 600;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 5%;
+  top: 7.5%;
+  height: 87.5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.section-7 {
+  position: absolute;
+  inset: 0;
+}
+.image-png9 {
+  width: 290px;
+  height: 347px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 2553px;
+}
+.rectangle-5 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.lorem-ipsum-dolor-sit-amet-cons2 {
+  width: 252px;
+  height: 92px;
+  position: absolute;
+  left: 16px;
+  top: 2944px;
+}
+.enjoyable-ride-every-time {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi2 {
+  width: 280px;
+  height: 168px;
+  position: absolute;
+  left: 16px;
+  top: 3052px;
+}
+.our-collection-features-a-wide-range-of-high-quality-bikes-each-bike-is-carefully-selected-for-its-performance-durability-and-comfort-ensuring-a-smooth-and-enjoyable-ride-every-time {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-png4 {
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  left: calc(50% - 145px);
+  top: 3244px;
+}
+.explore-now2 {
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--button-m-center-black-medium-font-family, "-", sans-serif);
+  font-size: var(--button-m-center-black-medium-font-size, 14px);
+  line-height: var(--button-m-center-black-medium-line-height, 18px);
+  letter-spacing: var(--button-m-center-black-medium-letter-spacing, 1.35px);
+  font-weight: var(--button-m-center-black-medium-font-weight, 400);
+  position: absolute;
+  right: 33.07%;
+  left: 12.2%;
+  width: 54.72%;
+  bottom: 34.55%;
+  top: 32.73%;
+  height: 32.73%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vector6 {
+  width: 6.3%;
+  height: 14.55%;
+  position: absolute;
+  right: 19.86%;
+  left: 73.84%;
+  bottom: 41.82%;
+  top: 43.64%;
+  overflow: visible;
+}
+.section-6 {
+  position: absolute;
+  inset: 0;
+}
+.image-png10 {
+  width: 320px;
+  height: 392px;
+  position: absolute;
+  left: 0px;
+  top: 2097px;
+}
+.rectangle-4 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.lorem-ipsum-dolor-sit-amet-consecte-adipiscing-elit-sed {
+  width: 288px;
+  height: 129px;
+  position: absolute;
+  left: 16px;
+  top: 2344px;
+}
+.each-bike-is-carefully-selected-for-its-performance {
+  color: #ffffff;
+  text-align: left;
+  font-family: var(--h3-m-left-white-regular-font-family, "-", sans-serif);
+  font-size: var(--h3-m-left-white-regular-font-size, 32px);
+  line-height: var(--h3-m-left-white-regular-line-height, 40px);
+  font-weight: var(--h3-m-left-white-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 3.88%;
+  top: 3.1%;
+  height: 93.02%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.vector7 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 2263px;
+  overflow: visible;
+}
+.section-5 {
+  position: absolute;
+  inset: 0;
+}
+.lorem-ipsum9 {
+  width: 111px;
+  height: 28px;
+  position: absolute;
+  left: 105px;
+  top: 1587px;
+}
+.speed {
+  color: #000000;
+  text-align: center;
+  font-family: var(--b1-m-center-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-center-black-regular-font-size, 16px);
+  line-height: var(--b1-m-center-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-center-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-center-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._43-kph {
+  width: 198px;
+  height: 58px;
+  position: absolute;
+  left: 61px;
+  top: 1647px;
+}
+._43-kph2 {
+  color: #000000;
+  text-align: center;
+  font-family: var(--h1-m-center-black-se-font-family, "-", sans-serif);
+  font-size: var(--h1-m-center-black-se-font-size, 50px);
+  line-height: var(--h1-m-center-black-se-line-height, 63px);
+  letter-spacing: var(--h1-m-center-black-se-letter-spacing, -0.78px);
+  font-weight: var(--h1-m-center-black-se-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: -5.17%;
+  top: -3.45%;
+  height: 108.62%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lorem-ipsum10 {
+  width: 111px;
+  height: 28px;
+  position: absolute;
+  left: 105px;
+  top: 1748px;
+}
+.road {
+  color: #000000;
+  text-align: center;
+  font-family: var(--b1-m-center-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-center-black-regular-font-size, 16px);
+  line-height: var(--b1-m-center-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-center-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-center-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._32-km {
+  width: 217px;
+  height: 75px;
+  position: absolute;
+  left: 52px;
+  top: 1799px;
+}
+._32-km2 {
+  color: #000000;
+  text-align: center;
+  font-family: var(--h2-m-center-black-bo-font-family, "-", sans-serif);
+  font-size: var(--h2-m-center-black-bo-font-size, 42px);
+  line-height: var(--h2-m-center-black-bo-line-height, 53px);
+  letter-spacing: var(--h2-m-center-black-bo-letter-spacing, -0.35px);
+  font-weight: var(--h2-m-center-black-bo-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 14.67%;
+  top: 14.67%;
+  height: 70.67%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lorem-ipsum11 {
+  width: 111px;
+  height: 28px;
+  position: absolute;
+  left: 105px;
+  top: 1907px;
+}
+.weight {
+  color: #000000;
+  text-align: center;
+  font-family: var(--b1-m-center-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-center-black-regular-font-size, 16px);
+  line-height: var(--b1-m-center-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-center-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-center-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._32-kg {
+  width: 217px;
+  height: 75px;
+  position: absolute;
+  left: 52px;
+  top: 1958px;
+}
+._32-kg2 {
+  color: #000000;
+  text-align: center;
+  font-family: var(--h2-m-center-black-bo-font-family, "-", sans-serif);
+  font-size: var(--h2-m-center-black-bo-font-size, 42px);
+  line-height: var(--h2-m-center-black-bo-line-height, 53px);
+  letter-spacing: var(--h2-m-center-black-bo-letter-spacing, -0.35px);
+  font-weight: var(--h2-m-center-black-bo-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 14.67%;
+  top: 14.67%;
+  height: 70.67%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-4 {
+  position: absolute;
+  inset: 0;
+}
+.image-png11 {
+  width: 288px;
+  height: 272px;
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+  top: 936px;
+}
+.rectangle-3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.lorem-ipsum-dolor-sit-amet2 {
+  width: 270px;
+  height: 46px;
+  position: absolute;
+  left: 16px;
+  top: 1263px;
+}
+.premium-bikes {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam-rem-aperiam-eaque-ipsa-quae-ab-illo-inventore-veritatis-et-quasi3 {
+  width: 270px;
+  height: 140px;
+  position: absolute;
+  left: 16px;
+  top: 1333px;
+}
+.our-collection-features-a-wide-range-of-high-quality-bikes-from-sleek-road-bikes-to-durable-mountain-bikes-and-versatile-hybrid-models {
+  color: #000000;
+  text-align: left;
+  font-family: var(--b1-m-left-black-regular-font-family, "-", sans-serif);
+  font-size: var(--b1-m-left-black-regular-font-size, 16px);
+  line-height: var(--b1-m-left-black-regular-line-height, 28px);
+  letter-spacing: var(--b1-m-left-black-regular-letter-spacing, 0.44px);
+  font-weight: var(--b1-m-left-black-regular-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+}
+.arrow-png {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 264px;
+  top: 1483px;
+  overflow: visible;
+}
+.arrow-png2 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 216px;
+  top: 1483px;
+  overflow: visible;
+}
+._01-04 {
+  width: 83px;
+  height: 26px;
+  position: absolute;
+  left: 17px;
+  top: 1224px;
+}
+._01-042 {
+  color: #000000;
+  text-align: left;
+  font-family: var(--h6-m-left-black-semi-font-family, "-", sans-serif);
+  font-size: var(--h6-m-left-black-semi-font-size, 18px);
+  line-height: var(--h6-m-left-black-semi-line-height, 23px);
+  letter-spacing: var(--h6-m-left-black-semi-letter-spacing, 0.14px);
+  font-weight: var(--h6-m-left-black-semi-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 3.85%;
+  top: 7.69%;
+  height: 88.46%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.section-3 {
+  position: absolute;
+  inset: 0;
+}
+.lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-sed {
+  width: 286px;
+  height: 138px;
+  position: absolute;
+  left: 16px;
+  top: 529px;
+}
+.we-re-passionate-about-all-things-cycling {
+  color: #000000;
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.sed-ut-perspiciatis-unde-omnis-iste-natus-error-sit-voluptatem-accusantium-doloremque-laudantium-totam {
+  width: 264px;
+  height: 90px;
+  position: absolute;
+  left: 16px;
+  top: 691px;
+}
+.welcome-here-we-ve-got-everything-you-need-to-elevate-your-biking-experience {
+  color: #000000;
+  text-align: left;
+  font-family: "Mulish-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 4.27%;
+  top: -4.27%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.button-png5 {
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  left: 16px;
+  top: 817px;
+}
+.vector8 {
+  width: 6.3%;
+  height: 14.55%;
+  position: absolute;
+  right: 19.86%;
+  left: 73.84%;
+  bottom: 41.82%;
+  top: 43.64%;
+  overflow: visible;
+}
+.section-2 {
+  position: absolute;
+  inset: 0;
+}
+.image-png12 {
+  width: 320px;
+  height: 400px;
+  position: absolute;
+  left: 0px;
+  top: 65px;
+}
+.rectangle-1 {
+  background: linear-gradient(
+    266.07deg,
+    rgba(0, 0, 0, 0) 30.53867816925049%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+  object-fit: cover;
+}
+.your-ultimate-destination-for-biking-enthusiasts {
+  width: 288px;
+  height: 192px;
+  position: absolute;
+  left: 16px;
+  bottom: 7907px;
+}
+.your-ultimate-destination-for-biking-enthusiasts2 {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Mulish-SemiBold", sans-serif;
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: 600;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  bottom: 0%;
+  top: 0%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.section-1 {
+  position: absolute;
+  inset: 0;
+}
+.logo3 {
+  width: 77.39px;
+  height: 23.43px;
+  position: absolute;
+  left: 121.3px;
+  top: 20.78px;
+}
+.ride-it {
+  color: #000000;
+  text-align: center;
+  font-family: "Lato-Regular", sans-serif;
+  font-size: 22.720001220703125px;
+  font-weight: 400;
+  position: absolute;
+  right: -30.36%;
+  left: -30.36%;
+  width: 160.71%;
+  bottom: -15.15%;
+  top: 0%;
+  height: 115.15%;
+}
+.ic-baseline-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 24px;
+  height: auto;
+  position: absolute;
+  left: 10px;
+  top: 20.5px;
+  overflow: visible;
+}
